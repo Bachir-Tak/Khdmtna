@@ -4,7 +4,8 @@ import javax.persistence.*;
 
 @Entity
 public class ReçuRemboursement {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @OneToOne
     private Remboursement remboursement;

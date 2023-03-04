@@ -1,12 +1,12 @@
 package com.fstg.gestioncommertiale.bean;
 
 
-
 import javax.persistence.*;
 
 @Entity
 public class Remboursement {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private int code;
     @OneToOne

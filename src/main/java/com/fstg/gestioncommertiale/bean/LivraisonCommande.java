@@ -5,7 +5,8 @@ import javax.persistence.*;
 @Entity
 
 public class LivraisonCommande {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @ManyToOne
     private Livraison livraison;

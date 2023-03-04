@@ -5,7 +5,8 @@ import java.math.BigDecimal;
 
 @Entity
 public class CommandeProduit {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private BigDecimal quantiteCommande;
