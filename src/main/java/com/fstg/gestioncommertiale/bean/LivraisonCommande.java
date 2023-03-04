@@ -7,9 +7,9 @@ import javax.persistence.*;
 public class LivraisonCommande {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToOne
+    @ManyToOne
     private Livraison livraison;
-    @OneToOne
+    @ManyToOne
     private Commande commande;
 
     public Livraison getLivraison() {

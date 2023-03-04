@@ -24,4 +24,6 @@ public class ReçuRemboursement {
     public Long getId() {
         return id;
     }
+
+
 }

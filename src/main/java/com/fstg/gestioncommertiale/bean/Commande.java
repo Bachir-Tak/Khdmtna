@@ -13,6 +13,8 @@ public class Commande {
     private Date date;
     @OneToMany (mappedBy = "commande")
     private List<CommandeProduit>  commandeProduits;
+    @OneToMany
+    private List<LivraisonCommande> livraisonCommandes;
 
     public Long getId() {
         return id;
@@ -44,5 +46,13 @@ public class Commande {
 
     public void setCommandeProduits(List<CommandeProduit> commandeProduits) {
         this.commandeProduits = commandeProduits;
+    }
+
+    public List<LivraisonCommande> getLivraisonCommandes() {
+        return livraisonCommandes;
+    }
+
+    public void setLivraisonCommandes(List<LivraisonCommande> livraisonCommandes) {
+        this.livraisonCommandes = livraisonCommandes;
     }
 }
