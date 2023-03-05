@@ -7,16 +7,12 @@ import java.util.List;
 public class VenteProduit {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idVentProduit;
+    private Long id;
     @ManyToOne
     private Vente vente;
-    public Long getIdVentProduit() {
-        return idVentProduit;
-    }
+    @ManyToOne
+    private Produit produit;
 
-    public void setIdVentProduit(Long idVentProduit) {
-        this.idVentProduit = idVentProduit;
-    }
 
     public Vente getVente() {
         return vente;
@@ -27,4 +23,19 @@ public class VenteProduit {
     }
 
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Produit getProduit() {
+        return produit;
+    }
+
+    public void setProduit(Produit produit) {
+        this.produit = produit;
+    }
 }

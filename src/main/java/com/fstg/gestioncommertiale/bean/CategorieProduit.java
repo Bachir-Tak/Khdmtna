@@ -1,38 +1,42 @@
 package com.fstg.gestioncommertiale.bean;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class CategorieProduit {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
-    private Long idCategorieProduit;
-    private int stock;
-    @ManyToOne
-    private Produit produit;
+    private Long id;
+    private String code;
+    @OneToMany (mappedBy = "categorieProduit")
+    private List<Produit> produits;
 
-    public Long getIdCategorieProduit() {
-        return idCategorieProduit;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setIdCategorieProduit(Long idCategorieProduit) {
-        this.idCategorieProduit = idCategorieProduit;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public int getStock() {
-        return stock;
+
+
+    public List<Produit> getProduits() {
+        return produits;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setProduits(List<Produit> produits) {
+        this.produits = produits;
     }
 
-    public Produit getProduit() {
-        return produit;
+    public String getCode() {
+        return code;
     }
 
-    public void setProduit(Produit produit) {
-        this.produit = produit;
+    public void setCode(String code) {
+        this.code = code;
     }
 }

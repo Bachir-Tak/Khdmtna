@@ -1,6 +1,7 @@
 package com.fstg.gestioncommertiale.bean;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -8,31 +9,17 @@ import java.util.List;
 public class Vente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idVente;
-    private int totalVente;
+    private Long id;
+    private BigDecimal totalVente;
     private Date dateVente;
-    @ManyToOne
-    private Client client;
     @ManyToOne
     private Fournisseur fournisseur;
     @OneToMany(mappedBy = "venteProduit")
     private List<VenteProduit> venteProduits;
 
-    public Long getIdVente() {
-        return idVente;
-    }
 
-    public void setIdVente(Long idVente) {
-        this.idVente = idVente;
-    }
 
-    public int getTotalVente() {
-        return totalVente;
-    }
 
-    public void setTotalVente(int totalVente) {
-        this.totalVente = totalVente;
-    }
 
     public Date getDateVente() {
         return dateVente;
@@ -42,11 +29,36 @@ public class Vente {
         this.dateVente = dateVente;
     }
 
-    public Client getClient() {
-        return client;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public BigDecimal getTotalVente() {
+        return totalVente;
+    }
+
+    public void setTotalVente(BigDecimal totalVente) {
+        this.totalVente = totalVente;
+    }
+
+    public Fournisseur getFournisseur() {
+        return fournisseur;
+    }
+
+    public void setFournisseur(Fournisseur fournisseur) {
+        this.fournisseur = fournisseur;
+    }
+
+    public List<VenteProduit> getVenteProduits() {
+        return venteProduits;
+    }
+
+    public void setVenteProduits(List<VenteProduit> venteProduits) {
+        this.venteProduits = venteProduits;
     }
 }

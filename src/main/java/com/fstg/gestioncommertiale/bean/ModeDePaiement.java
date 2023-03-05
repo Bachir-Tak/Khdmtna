@@ -9,7 +9,9 @@ import javax.persistence.Id;
 public class ModeDePaiement {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
-    private int code ;
+    private String code ;
+
+    private String libelle;
 
     public Long getId() {
         return id;
@@ -19,11 +21,20 @@ public class ModeDePaiement {
         this.id = id;
     }
 
-    public int getCode() {
+
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
+    }
+
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
     }
 }

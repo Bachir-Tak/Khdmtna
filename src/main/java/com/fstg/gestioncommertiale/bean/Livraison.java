@@ -2,6 +2,7 @@ package com.fstg.gestioncommertiale.bean;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Livraison {
@@ -11,6 +12,8 @@ public class Livraison {
     private Date date;
     @OneToOne
     private Achat achat;
+    @OneToMany(mappedBy = "livraison")
+    private List<LivraisonCommande> livraisonCommandes;
 
     public Date getDate() {
         return date;
@@ -35,5 +38,13 @@ public class Livraison {
 
     public Long getId() {
         return id;
+    }
+
+    public List<LivraisonCommande> getLivraisonCommandes() {
+        return livraisonCommandes;
+    }
+
+    public void setLivraisonCommandes(List<LivraisonCommande> livraisonCommandes) {
+        this.livraisonCommandes = livraisonCommandes;
     }
 }

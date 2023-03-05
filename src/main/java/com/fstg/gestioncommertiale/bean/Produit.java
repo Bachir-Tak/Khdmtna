@@ -10,77 +10,60 @@ public class Produit {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
-    private Long idProduit;
-    private String nomProduit;
-    private Long quantiteProduit;
-    private Long prixProduitVente;
-    private Long prixProduitAchat;
+    private Long id;
+    private String nom;
+    private Long quantite;
+    private Long prixVente;
+    private Long prixAchat;
     @OneToMany(mappedBy = "produit")
-    private List<CategorieProduit> categorieProduits;
-    @ManyToOne
-    private Commande commande;
+    private List<FournisseurProduit> fournisseurProduits;
 
-    public Commande getCommande() {
-        return commande;
+    public Long getId() {
+        return id;
     }
 
-    public void setCommande(Commande commande) {
-        this.commande = commande;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public List<CategorieProduit> getCategorieProduit() {
-        return categorieProduits;
+    public String getNom() {
+        return nom;
     }
 
-    public void setCategorieProduit(List<CategorieProduit> categorieProduit) {
-        this.categorieProduits = categorieProduit;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    public Long getIdProduit() {
-        return idProduit;
+    public Long getQuantite() {
+        return quantite;
     }
 
-    public void setIdProduit(Long idProduit) {
-        this.idProduit = idProduit;
+    public void setQuantite(Long quantite) {
+        this.quantite = quantite;
     }
 
-    public String getNomProduit() {
-        return nomProduit;
+    public Long getPrixVente() {
+        return prixVente;
     }
 
-    public void setNomProduit(String nomProduit) {
-        this.nomProduit = nomProduit;
+    public void setPrixVente(Long prixVente) {
+        this.prixVente = prixVente;
     }
 
-    public Long getQuantiteProduit() {
-        return quantiteProduit;
+    public Long getPrixAchat() {
+        return prixAchat;
     }
 
-    public void setQuantiteProduit(Long quantiteProduit) {
-        this.quantiteProduit = quantiteProduit;
+    public void setPrixAchat(Long prixAchat) {
+        this.prixAchat = prixAchat;
     }
 
-    public Long getPrixProduitVente() {
-        return prixProduitVente;
+
+    public List<FournisseurProduit> getFournisseurProduits() {
+        return fournisseurProduits;
     }
 
-    public void setPrixProduitVente(Long prixProduit) {
-        this.prixProduitVente = prixProduit;
-    }
-
-    public Long getPrixProduitAchat() {
-        return prixProduitAchat;
-    }
-
-    public void setPrixProduitAchat(Long prixProduitAchat) {
-        this.prixProduitAchat = prixProduitAchat;
-    }
-
-    public List<CategorieProduit> getCategorieProduits() {
-        return categorieProduits;
-    }
-
-    public void setCategorieProduits(List<CategorieProduit> categorieProduits) {
-        this.categorieProduits = categorieProduits;
+    public void setFournisseurProduits(List<FournisseurProduit> fournisseurProduits) {
+        this.fournisseurProduits = fournisseurProduits;
     }
 }

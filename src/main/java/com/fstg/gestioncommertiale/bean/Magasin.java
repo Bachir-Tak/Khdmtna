@@ -11,7 +11,7 @@ public class Magasin {
     private String libelle;
     private String code;
     @OneToMany(mappedBy = "magasin")
-    private List<Stock> stock;
+    private List<Stock> stocks;
 
     public Long getId() {
         return id;
@@ -37,11 +37,12 @@ public class Magasin {
         this.code = code;
     }
 
-    public List<Stock> getStock() {
-        return stock;
+
+    public List<Stock> getStocks() {
+        return stocks;
     }
 
-    public void setStock(List<Stock> stock) {
-        this.stock = stock;
+    public void setStocks(List<Stock> stocks) {
+        this.stocks = stocks;
     }
 }

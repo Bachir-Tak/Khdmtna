@@ -7,17 +7,11 @@ public class AvoirLivraison {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private int code;
+    private String code;
     @OneToOne
     private Livraison livraison;
 
-    public int getCode() {
-        return code;
-    }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
 
     public Livraison getLivraison() {
         return livraison;
@@ -33,5 +27,13 @@ public class AvoirLivraison {
 
     public Long getId() {
         return id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

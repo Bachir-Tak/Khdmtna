@@ -15,8 +15,6 @@ public class Stock {
     @ManyToOne
     private Produit produit;
 
-    private BigDecimal quantite;
-
     private BigDecimal quantiteDefectueuse;
 
     private BigDecimal quantiteEntree;
@@ -55,13 +53,6 @@ public class Stock {
         this.produit = produit;
     }
 
-    public BigDecimal getQuantite() {
-        return quantite;
-    }
-
-    public void setQuantite(BigDecimal quantite) {
-        this.quantite = quantite;
-    }
 
     public BigDecimal getQuantiteDefectueuse() {
         return quantiteDefectueuse;

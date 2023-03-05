@@ -8,7 +8,7 @@ public class Achat {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private int code;
+    private String code;
     @OneToMany(mappedBy = "achat")
     private List<AchatCommande> achatCommandes;
     @ManyToOne
@@ -22,13 +22,7 @@ public class Achat {
         this.id = id;
     }
 
-    public int getCode() {
-        return code;
-    }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
 
 
     public Client getClient() {
@@ -46,5 +40,13 @@ public class Achat {
 
     public void setAchatCommandes(List<AchatCommande> achatCommandes) {
         this.achatCommandes = achatCommandes;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

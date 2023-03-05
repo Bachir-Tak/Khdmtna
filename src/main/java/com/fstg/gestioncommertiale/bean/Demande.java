@@ -16,7 +16,7 @@ public class Demande {
     @OneToOne
     private Client client;
     @OneToMany(mappedBy = "demande")
-    private List<DemandeProduit> demandeProduit;
+    private List<DemandeProduit> demandeProduits;
 
     public void setId(Long id) {
         this.id = id;
@@ -50,11 +50,12 @@ public class Demande {
         this.client = client;
     }
 
-    public List<DemandeProduit> getDemandeProduit() {
-        return demandeProduit;
+
+    public List<DemandeProduit> getDemandeProduits() {
+        return demandeProduits;
     }
 
-    public void setDemandeProduit(List<DemandeProduit> demandeProduit) {
-        this.demandeProduit = demandeProduit;
+    public void setDemandeProduits(List<DemandeProduit> demandeProduits) {
+        this.demandeProduits = demandeProduits;
     }
 }

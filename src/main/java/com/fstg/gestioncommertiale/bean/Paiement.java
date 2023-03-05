@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Paiement {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
-    private int code ;
+    private String code ;
     @OneToOne
     private Achat achat ;
 
@@ -19,13 +19,7 @@ public class Paiement {
         this.id = id;
     }
 
-    public int getCode() {
-        return code;
-    }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
 
     public Achat getAchat() {
         return achat;
@@ -33,5 +27,13 @@ public class Paiement {
 
     public void setAchat(Achat achat) {
         this.achat = achat;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

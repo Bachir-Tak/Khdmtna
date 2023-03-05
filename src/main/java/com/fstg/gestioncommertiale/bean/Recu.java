@@ -6,7 +6,9 @@ import javax.persistence.*;
 public class Recu {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private int code ;
+    private String code ;
+
+    private String libelle;
     @OneToOne
     private Paiement paiement;
 
@@ -18,13 +20,7 @@ public class Recu {
         this.id = id;
     }
 
-    public int getCode() {
-        return code;
-    }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
 
     public Paiement getPaiement() {
         return paiement;
@@ -32,5 +28,21 @@ public class Recu {
 
     public void setPaiement(Paiement paiement) {
         this.paiement = paiement;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
     }
 }

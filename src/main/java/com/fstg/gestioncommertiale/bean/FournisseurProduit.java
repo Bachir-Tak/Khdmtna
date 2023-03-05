@@ -6,19 +6,12 @@ import java.util.List;
 @Entity
 public class FournisseurProduit {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idFournisseurProduit;
+    private Long id;
     @ManyToOne
     private Fournisseur fournisseur;
-    @OneToMany(mappedBy = "produit")
-    private List<Produit> produits;
+    @ManyToOne
+    private  Produit produit;
 
-    public Long getIdFournisseurProduit() {
-        return idFournisseurProduit;
-    }
-
-    public void setIdFournisseurProduit(Long idFournisseurProduit) {
-        this.idFournisseurProduit = idFournisseurProduit;
-    }
 
     public Fournisseur getFournisseur() {
         return fournisseur;
@@ -28,11 +21,20 @@ public class FournisseurProduit {
         this.fournisseur = fournisseur;
     }
 
-    public List<Produit> getProduits() {
-        return produits;
+
+    public Produit getProduit() {
+        return produit;
     }
 
-    public void setProduits(List<Produit> produits) {
-        this.produits = produits;
+    public void setProduit(Produit produit) {
+        this.produit = produit;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

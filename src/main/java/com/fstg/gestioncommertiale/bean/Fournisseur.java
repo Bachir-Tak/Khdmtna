@@ -8,9 +8,9 @@ public class Fournisseur {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idFournisseur;
+
+    private int code;
     private String nomFournisseur;
-    @OneToMany(mappedBy = "commande")
-    private List<Commande> commandes;
 
     public Long getIdFournisseur() {
         return idFournisseur;
@@ -28,11 +28,12 @@ public class Fournisseur {
         this.nomFournisseur = nomFournisseur;
     }
 
-    public List<Commande> getCommandes() {
-        return commandes;
+
+    public int getCode() {
+        return code;
     }
 
-    public void setCommandes(List<Commande> commandes) {
-        this.commandes = commandes;
+    public void setCode(int code) {
+        this.code = code;
     }
 }
