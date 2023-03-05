@@ -11,7 +11,7 @@ public class CommandeProduit {
 
     private BigDecimal quantiteCommande;
 
-    private int prixTotale;
+    private double prixTotale;
     @ManyToOne
     private Commande commande;
     @ManyToOne
@@ -35,11 +35,11 @@ public class CommandeProduit {
     }
 
 
-    public int getPrixTotale() {
+    public double getPrixTotale() {
         return prixTotale;
     }
 
-    public void setPrixTotale(int prixTotale) {
+    public void setPrixTotale(double prixTotale) {
         this.prixTotale = prixTotale;
     }
 

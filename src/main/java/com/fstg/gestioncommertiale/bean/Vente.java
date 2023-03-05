@@ -14,7 +14,7 @@ public class Vente {
     private Date dateVente;
     @ManyToOne
     private Fournisseur fournisseur;
-    @OneToMany(mappedBy = "venteProduit")
+    @OneToMany(mappedBy = "vente")
     private List<VenteProduit> venteProduits;
 
 

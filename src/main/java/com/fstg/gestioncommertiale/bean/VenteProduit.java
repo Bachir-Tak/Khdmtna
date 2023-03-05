@@ -23,13 +23,7 @@ public class VenteProduit {
     }
 
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Produit getProduit() {
         return produit;
@@ -37,5 +31,13 @@ public class VenteProduit {
 
     public void setProduit(Produit produit) {
         this.produit = produit;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
