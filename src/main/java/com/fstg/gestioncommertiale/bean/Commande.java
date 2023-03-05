@@ -6,13 +6,14 @@ import java.util.List;
 
 @Entity
 public class Commande {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String ref;
 
     private Date date;
-    @OneToMany (mappedBy = "commande")
-    private List<CommandeProduit>  commandeProduits;
+    @OneToMany(mappedBy = "commande")
+    private List<CommandeProduit> commandeProduits;
     @OneToMany
     private List<LivraisonCommande> livraisonCommandes;
 

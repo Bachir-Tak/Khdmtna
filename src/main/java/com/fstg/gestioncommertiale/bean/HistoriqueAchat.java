@@ -5,9 +5,10 @@ import java.util.List;
 
 @Entity
 public class HistoriqueAchat {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToMany (mappedBy = "historiqueAchat")
+    @OneToMany(mappedBy = "historiqueAchat")
     private List<Achat> achats;
 
 

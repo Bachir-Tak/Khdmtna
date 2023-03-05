@@ -4,7 +4,8 @@ import javax.persistence.*;
 
 @Entity
 public class AchatCommande {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @ManyToOne
     private Achat achat;

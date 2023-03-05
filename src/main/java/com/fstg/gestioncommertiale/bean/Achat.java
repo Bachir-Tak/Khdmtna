@@ -5,11 +5,12 @@ import java.util.List;
 
 @Entity
 public class Achat {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private int code;
     @OneToMany(mappedBy = "achat")
-    private List<AchatCommande>  achatCommandes;
+    private List<AchatCommande> achatCommandes;
     @ManyToOne
     private Client client;
 
@@ -28,7 +29,6 @@ public class Achat {
     public void setCode(int code) {
         this.code = code;
     }
-
 
 
     public Client getClient() {
