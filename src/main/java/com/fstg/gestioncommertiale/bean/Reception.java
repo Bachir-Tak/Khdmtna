@@ -10,6 +10,8 @@ public class Reception {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String ref;
+
     private String libelle;
     @OneToMany(mappedBy = "reception")
     private List<ReceptionProduit> receptionProduit;
@@ -55,5 +57,13 @@ public class Reception {
 
     public void setDateReception(Date dateReception) {
         this.dateReception = dateReception;
+    }
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
     }
 }

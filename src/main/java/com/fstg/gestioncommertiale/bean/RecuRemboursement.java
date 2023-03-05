@@ -3,7 +3,7 @@ package com.fstg.gestioncommertiale.bean;
 import javax.persistence.*;
 
 @Entity
-public class ReçuRemboursement {
+public class RecuRemboursement {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

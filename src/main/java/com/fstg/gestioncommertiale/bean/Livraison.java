@@ -9,6 +9,8 @@ public class Livraison {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    private String ref;
     private Date date;
     @OneToOne
     private Achat achat;
@@ -46,5 +48,13 @@ public class Livraison {
 
     public void setLivraisonCommandes(List<LivraisonCommande> livraisonCommandes) {
         this.livraisonCommandes = livraisonCommandes;
+    }
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
     }
 }

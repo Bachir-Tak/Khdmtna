@@ -10,6 +10,7 @@ public class Vente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String ref;
     private BigDecimal totalVente;
     private Date dateVente;
     @ManyToOne
@@ -60,5 +61,13 @@ public class Vente {
 
     public void setVenteProduits(List<VenteProduit> venteProduits) {
         this.venteProduits = venteProduits;
+    }
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
     }
 }
