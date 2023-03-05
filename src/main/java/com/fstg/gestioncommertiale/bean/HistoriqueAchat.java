@@ -8,6 +8,8 @@ public class HistoriqueAchat {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    private String ref;
     @OneToMany(mappedBy = "historiqueAchat")
     private List<Achat> achats;
 
@@ -27,5 +29,13 @@ public class HistoriqueAchat {
 
     public void setAchats(List<Achat> achats) {
         this.achats = achats;
+    }
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
     }
 }

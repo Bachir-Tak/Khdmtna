@@ -8,7 +8,7 @@ public class Remboursement {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private int code;
+    private String code;
     @OneToOne
     private AvoirLivraison avoirLivraison;
 
@@ -20,11 +20,11 @@ public class Remboursement {
         this.avoirLivraison = avoirLivraison;
     }
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

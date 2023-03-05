@@ -9,9 +9,9 @@ public class CommandeProduit {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private BigDecimal quantiteCommande;
+    private BigDecimal quantite;
 
-    private double prixTotale;
+    private BigDecimal prixTotale;
     @ManyToOne
     private Commande commande;
     @ManyToOne
@@ -35,20 +35,20 @@ public class CommandeProduit {
     }
 
 
-    public double getPrixTotale() {
+    public BigDecimal getPrixTotale() {
         return prixTotale;
     }
 
-    public void setPrixTotale(double prixTotale) {
+    public void setPrixTotale(BigDecimal prixTotale) {
         this.prixTotale = prixTotale;
     }
 
     public BigDecimal getQuantiteCommande() {
-        return quantiteCommande;
+        return quantite;
     }
 
     public void setQuantiteCommande(BigDecimal quantiteCommande) {
-        this.quantiteCommande = quantiteCommande;
+        this.quantite = quantiteCommande;
     }
 
     public Produit getProduit() {
