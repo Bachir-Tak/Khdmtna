@@ -18,10 +18,6 @@ public class Vente {
     @OneToMany(mappedBy = "vente")
     private List<VenteProduit> venteProduits;
 
-
-
-
-
     public Date getDateVente() {
         return dateVente;
     }

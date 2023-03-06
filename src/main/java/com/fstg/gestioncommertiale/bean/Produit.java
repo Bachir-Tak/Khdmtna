@@ -17,8 +17,6 @@ public class Produit {
 
     private Long prixVente;
     private Long prixAchat;
-    @OneToMany(mappedBy = "produit")
-    private List<FournisseurProduit> fournisseurProduits;
 
     public String getRef() {
         return ref;
@@ -60,11 +58,6 @@ public class Produit {
     }
 
 
-    public List<FournisseurProduit> getFournisseurProduits() {
-        return fournisseurProduits;
-    }
 
-    public void setFournisseurProduits(List<FournisseurProduit> fournisseurProduits) {
-        this.fournisseurProduits = fournisseurProduits;
-    }
+
 }

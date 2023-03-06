@@ -8,10 +8,13 @@ public class Fournisseur {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String code;
     private String nom;
+    @ManyToOne
+    private Ville ville;
 
+    @OneToMany (mappedBy = "fournisseur")
+    private List<FournisseurProduit> fournisseurProduits;
 
     public Long getId() {
         return id;
@@ -35,5 +38,21 @@ public class Fournisseur {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public Ville getVille() {
+        return ville;
+    }
+
+    public void setVille(Ville ville) {
+        this.ville = ville;
+    }
+
+    public List<FournisseurProduit> getFournisseurProduits() {
+        return fournisseurProduits;
+    }
+
+    public void setFournisseurProduits(List<FournisseurProduit> fournisseurProduits) {
+        this.fournisseurProduits = fournisseurProduits;
     }
 }

@@ -9,7 +9,7 @@ public class Paiement {
     private String code ;
     @OneToOne
     private Achat achat ;
-
+    private boolean paiementEffectue;
 
     public Long getId() {
         return id;
@@ -35,5 +35,13 @@ public class Paiement {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public boolean isPaiementEffectue() {
+        return paiementEffectue;
+    }
+
+    public void setPaiementEffectue(boolean paiementEffectue) {
+        this.paiementEffectue = paiementEffectue;
     }
 }
