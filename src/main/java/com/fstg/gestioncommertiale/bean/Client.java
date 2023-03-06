@@ -12,6 +12,8 @@ public class Client {
     private Long id;
     private String nom;
 
+    private String prenom;
+
     private String cin;
 
     public Long getId() {
@@ -36,5 +38,13 @@ public class Client {
 
     public void setCin(String cin) {
         this.cin = cin;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 }
