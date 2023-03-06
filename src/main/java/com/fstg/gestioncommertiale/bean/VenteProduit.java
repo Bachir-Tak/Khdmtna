@@ -1,7 +1,7 @@
 package com.fstg.gestioncommertiale.bean;
 
 import javax.persistence.*;
-import java.util.List;
+
 
 @Entity
 public class VenteProduit {

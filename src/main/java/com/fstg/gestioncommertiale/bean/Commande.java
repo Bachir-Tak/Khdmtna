@@ -1,7 +1,7 @@
 package com.fstg.gestioncommertiale.bean;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -11,7 +11,7 @@ public class Commande {
     private Long id;
     private String ref;
 
-    private Date date;
+    private LocalDateTime date;
     @OneToMany(mappedBy = "commande")
     private List<CommandeProduit> commandeProduits;
 
@@ -32,13 +32,7 @@ public class Commande {
         this.ref = ref;
     }
 
-    public Date getDate() {
-        return date;
-    }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
     public List<CommandeProduit> getCommandeProduits() {
         return commandeProduits;
@@ -49,7 +43,11 @@ public class Commande {
     }
 
 
+    public LocalDateTime getDate() {
+        return date;
+    }
 
-
-
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
 }

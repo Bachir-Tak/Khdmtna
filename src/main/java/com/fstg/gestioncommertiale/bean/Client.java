@@ -1,6 +1,9 @@
 package com.fstg.gestioncommertiale.bean;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Client {
@@ -8,10 +11,10 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nom;
-    private String cin;
 
-    @ManyToOne
-    private Ville ville;
+    private String prenom;
+
+    private String cin;
 
     public Long getId() {
         return id;
@@ -37,13 +40,11 @@ public class Client {
         this.cin = cin;
     }
 
-
-    public Ville getVille() {
-        return ville;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public void setVille(Ville ville) {
-        this.ville = ville;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 }
-
