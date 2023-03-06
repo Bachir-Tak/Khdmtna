@@ -2,7 +2,8 @@ package com.fstg.gestioncommertiale.bean;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
+
 import java.util.List;
 
 @Entity
@@ -12,7 +13,7 @@ public class Vente {
     private Long id;
     private String ref;
     private BigDecimal totalVente;
-    private Date dateVente;
+    private LocalDateTime dateVente;
     @ManyToOne
     private Fournisseur fournisseur;
     @OneToMany(mappedBy = "vente")
@@ -22,13 +23,7 @@ public class Vente {
 
 
 
-    public Date getDateVente() {
-        return dateVente;
-    }
 
-    public void setDateVente(Date dateVente) {
-        this.dateVente = dateVente;
-    }
 
 
     public Long getId() {
@@ -69,5 +64,13 @@ public class Vente {
 
     public void setRef(String ref) {
         this.ref = ref;
+    }
+
+    public LocalDateTime getDateVente() {
+        return dateVente;
+    }
+
+    public void setDateVente(LocalDateTime dateVente) {
+        this.dateVente = dateVente;
     }
 }
