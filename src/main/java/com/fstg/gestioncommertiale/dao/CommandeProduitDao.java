@@ -11,10 +11,8 @@ import java.util.List;
 public interface CommandeProduitDao  extends JpaRepository<CommandeProduit, Long> {
     List<CommandeProduit> findByProduitRef(String ref);
     int deleteByProduitRef(String ref);
-    List<CommandeProduit> findByProduitId(Long id);
-    int deleteByProduitId(Long id);
+
     List<CommandeProduit> findByCommandeRef(String ref);
     int deleteByCommandeRef(String ref);
-    List<CommandeProduit> findByCommandeId(Long id);
-    int deleteByCommandeId(Long id);
+
 }
