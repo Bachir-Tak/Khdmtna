@@ -16,35 +16,33 @@ import java.util.List;
 public class VenteService {
     @Autowired
     private VenteDao venteDao;
-    @Autowired
-    private VenteProduitDao venteProduitDao;
-    @Autowired
-    private FournisseurDao fournisseurDao;
 
-    public Fournisseur findByCode(String code) {
-        return fournisseurDao.findByCode(code);
-    }
-
-    public List<VenteProduit> findByVenteRef(String ref) {
-        return venteProduitDao.findByVenteRef(ref);
-    }
+    @Autowired
+    private FournisseurService fournisseurService;
+    @Autowired
+    VenteProduitService venteProduitService;
 
 
     public Vente findByRef(String ref) {
         return venteDao.findByRef(ref);
     }
 
-    public int save(Vente vente, Fournisseur fournisseur, List<VenteProduit> venteProduits) {
-        for (VenteProduit venteProduit : venteProduits) {
-            if (findByRef(venteProduit.getProduit().getRef()) == null) {
-                return -1;
-            }else if (findByCode(fournisseur.getCode()) == null) {
-                return -2;
-            } else {
-                venteDao.save(vente);
-            }
+    public int save(Vente vente) {
+        if (findByRef(vente.getRef()) != null) {
+            return -1;
         }
-        return 1;
+        if (fournisseurService.findByCode( vente.getFournisseur().getCode()) == null) {
+            return -2;
+        }
+        if (vente.getVenteProduits().isEmpty()) {
+            return -3;
+        }
+        venteDao.save(vente);
+        for (VenteProduit venteProduit:vente.getVenteProduits()){
+            venteProduitService.save(venteProduit);
+        }
+            return 1;
+
     }
 
     @Transactional

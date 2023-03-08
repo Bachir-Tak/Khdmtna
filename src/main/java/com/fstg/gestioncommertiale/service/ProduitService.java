@@ -30,6 +30,7 @@ public class ProduitService {
         if (findByRef(produit.getRef()) != null) {
             produit.setPrixAchat(prixAchat);
             produit.setPrixVente(prixVente);
+            produitDao.save(produit);
             return 1;
         } else {
             return -2;

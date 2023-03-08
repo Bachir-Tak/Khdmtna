@@ -15,14 +15,12 @@ public class VenteProduitService {
     @Autowired
     private VenteProduitDao venteProduitDao;
     @Autowired
-    private ProduitDao produitDao;
+    private ProduitService produitService;
 
-    public Produit findByRef(String ref) {
-        return produitDao.findByRef(ref);
-    }
 
-    public int save(VenteProduit venteProduit, Produit produit) {
-        if (findByProduitRef(produit.getRef()) != null) {
+
+    public int save(VenteProduit venteProduit) {
+        if (produitService.findByRef(venteProduit.getProduit().getRef())!=null) {
             return -1;
         } else {
             venteProduitDao.save(venteProduit);
