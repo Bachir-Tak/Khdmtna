@@ -18,6 +18,8 @@ public class Produit {
     private Long prixVente;
 
 
+
+
     public String getRef() {
         return ref;
     }

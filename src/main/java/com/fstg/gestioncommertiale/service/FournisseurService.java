@@ -10,8 +10,6 @@ import java.util.List;
 
 @Service
 public class FournisseurService {
-    @Autowired
-    private FournisseurDao fournisseurDao;
 
     public Fournisseur findByCode(String code) {
         return fournisseurDao.findByCode(code);
@@ -38,4 +36,7 @@ public class FournisseurService {
     public List<Fournisseur> findAll() {
         return fournisseurDao.findAll();
     }
+
+    @Autowired
+    private FournisseurDao fournisseurDao;
 }

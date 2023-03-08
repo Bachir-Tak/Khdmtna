@@ -10,9 +10,6 @@ import java.util.List;
 
 @Service
 public class CategorieProduitService {
-    @Autowired
-    private CategorieProduitDao categorieProduitDao;
-
     public CategorieProduit findByCode(String code) {
         return categorieProduitDao.findByCode(code);
     }
@@ -34,4 +31,7 @@ public class CategorieProduitService {
     public List<CategorieProduit> findAll() {
         return categorieProduitDao.findAll();
     }
+
+    @Autowired
+    private CategorieProduitDao categorieProduitDao;
 }

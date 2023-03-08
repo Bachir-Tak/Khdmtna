@@ -37,14 +37,7 @@ public class VenteProduitService {
         return venteProduitDao.deleteByProduitRef(ref);
     }
 
-    public List<VenteProduit> findByProduitId(Long id) {
-        return venteProduitDao.findByProduitId(id);
-    }
 
-    @Transactional
-    public int deleteByProduitId(Long id) {
-        return venteProduitDao.deleteByProduitId(id);
-    }
 
     public List<VenteProduit> findByVenteRef(String ref) {
         return venteProduitDao.findByVenteRef(ref);
@@ -55,12 +48,5 @@ public class VenteProduitService {
         return venteProduitDao.deleteByVenteRef(ref);
     }
 
-    public List<VenteProduit> findByVenteId(Long id) {
-        return venteProduitDao.findByVenteId(id);
-    }
 
-    @Transactional
-    public int deleteByVenteId(Long id) {
-        return venteProduitDao.deleteByVenteId(id);
-    }
 }
