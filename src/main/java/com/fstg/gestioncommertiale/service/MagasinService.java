@@ -15,7 +15,6 @@ public class MagasinService {
     }
 
     @Transactional
-
     public int deleteByCode(String code) {
         return magasinDao.deleteByCode(code);
     }

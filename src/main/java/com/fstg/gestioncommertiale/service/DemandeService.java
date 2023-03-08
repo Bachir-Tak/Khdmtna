@@ -36,6 +36,9 @@ public class DemandeService {
             }
         }
         demandeDao.save(demande);
+        for (DemandeProduit demandeProduit : demande.getDemandeProduits()){
+            demandeProduitService.save(demandeProduit);
+        }
         return 1;
     }
 
@@ -48,4 +51,7 @@ public class DemandeService {
 
     @Autowired
     private StockService stockService;
+
+    @Autowired
+    private DemandeProduitService demandeProduitService;
 }
