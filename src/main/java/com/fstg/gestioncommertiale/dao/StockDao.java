@@ -11,4 +11,8 @@ public interface StockDao extends JpaRepository<Stock,Long> {
     List<Stock> findByMagasinCode(String code);
 
     int deleteByMagasinCode(String code);
+
+    List<Stock> findByProduitRef(String ref);
+
+    int deleteByProduitRef(String ref);
 }

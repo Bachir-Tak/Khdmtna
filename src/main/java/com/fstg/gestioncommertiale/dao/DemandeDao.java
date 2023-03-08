@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DemandeDao extends JpaRepository<Demande,Long> {
-    Demande findByCode(String demande);
-    int deleteByCode(String demande);
+    Demande findByCode(String code);
+    int deleteByCode(String code);
 
 }
