@@ -15,6 +15,7 @@ public class ProduitService {
 
     public Produit findByRef(String ref) {
         return produitDao.findByRef(ref);
+
     }
 
     public int save(Produit produit) {
