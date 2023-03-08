@@ -4,29 +4,27 @@ import com.fstg.gestioncommertiale.bean.Recu;
 import com.fstg.gestioncommertiale.service.RecuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-
 import java.util.List;
-
-
-@RestController @RequestMapping("api/v1/Recu")
+@RestController
+@RequestMapping("/GestionCommertiale/Recu")
 public class RecuProvided {
-    @Autowired
-    private RecuService recuService ;
-@GetMapping("/code/{code}")
+    @GetMapping("/code/{code}")
     public Recu findByCode(@PathVariable String code) {
         return recuService.findByCode(code);
     }
-@DeleteMapping("/code/{code}")
+    @DeleteMapping("/code/{code}")
     public int deleteByCode(@PathVariable String code) {
         return recuService.deleteByCode(code);
     }
-@GetMapping("/")
+    @GetMapping("/")
     public List<Recu> findAll() {
         return recuService.findAll();
     }
-@PostMapping("/")
+    @PostMapping("/")
     public int save(@RequestBody Recu recu) {
         return recuService.save(recu);
     }
+    @Autowired
+    private RecuService recuService ;
+
 }

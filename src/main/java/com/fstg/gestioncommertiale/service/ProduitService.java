@@ -10,8 +10,7 @@ import java.util.List;
 
 @Service
 public class ProduitService {
-    @Autowired
-    private ProduitDao produitDao;
+
 
     public Produit findByRef(String ref) {
         return produitDao.findByRef(ref);
@@ -23,23 +22,19 @@ public class ProduitService {
             return -1;
         } else {
             produitDao.save(produit);
-            return -1;
+            return 1;
         }
     }
 
     public int update(Produit produit, Long prixVente) {
-        if (findByRef(produit.getRef()) != null) {
-
+        if (findByRef(produit.getRef()) == null) {
+            return -1;
+        } else {
             produit.setPrixVente(prixVente);
             produitDao.save(produit);
             return 1;
-        } else {
-            return -2;
         }
-
-
     }
-
     @Transactional
     public int deleteByRef(String ref) {
         return produitDao.deleteByRef(ref);
@@ -48,4 +43,7 @@ public class ProduitService {
     public List<Produit> findAll() {
         return produitDao.findAll();
     }
+
+    @Autowired
+    private ProduitDao produitDao;
 }

@@ -13,7 +13,7 @@ public class Client {
 
     private String cin;
     @OneToOne
-    private CompteClient compteClient;
+    private Compte compte;
     @ManyToOne
     private Ville ville;
 
@@ -57,11 +57,11 @@ public class Client {
         this.ville = ville;
     }
 
-    public CompteClient getCompteClient() {
-        return compteClient;
+    public Compte getCompteClient() {
+        return compte;
     }
 
-    public void setCompteClient(CompteClient compteClient) {
-        this.compteClient = compteClient;
+    public void setCompteClient(Compte compte) {
+        this.compte = compte;
     }
 }

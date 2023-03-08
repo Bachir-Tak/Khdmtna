@@ -30,19 +30,18 @@ public class VenteService {
     public int save(Vente vente) {
         if (findByRef(vente.getRef()) != null) {
             return -1;
-        }
-        if (fournisseurService.findByCode( vente.getFournisseur().getCode()) == null) {
+        } else if (fournisseurService.findByCode(vente.getFournisseur().getCode()) == null) {
             return -2;
-        }
-        if (vente.getVenteProduits().isEmpty()) {
+        } else if (vente.getVenteProduits().isEmpty()) {
             return -3;
-        }
-        venteDao.save(vente);
-        for (VenteProduit venteProduit:vente.getVenteProduits()){
-            venteProduitService.save(venteProduit);
-        }
+        } else {
+            venteDao.save(vente);
+            for (VenteProduit venteProduit : vente.getVenteProduits()) {
+                venteProduitService.save(venteProduit);
+            }
             return 1;
 
+        }
     }
 
     @Transactional

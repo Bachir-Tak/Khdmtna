@@ -7,25 +7,27 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController @RequestMapping("api/v1/ModeDePaiement")
+@RestController
+@RequestMapping("/GestionCommertiale/ModeDePaiement")
 public class ModeDePaiementProvided {
-    @Autowired
-    private ModeDePaiementService modeDePaiementService;
-@GetMapping("/code/{code}")
+    @GetMapping("/code/{code}")
     public ModeDePaiement findByCode( @PathVariable String code) {
         return modeDePaiementService.findByCode(code);
     }
 
-@DeleteMapping("/code/{code}")
+    @DeleteMapping("/code/{code}")
     public int deleteByCode(@PathVariable String code) {
         return modeDePaiementService.deleteByCode(code);
     }
-@GetMapping("/")
+    @GetMapping("/")
     public List<ModeDePaiement> findAll() {
         return modeDePaiementService.findAll();
     }
-@PostMapping("/")
+    @PostMapping("/")
     public int save(@RequestBody ModeDePaiement modeDePaiement) {
         return modeDePaiementService.save(modeDePaiement);
     }
+    @Autowired
+    private ModeDePaiementService modeDePaiementService;
+
 }

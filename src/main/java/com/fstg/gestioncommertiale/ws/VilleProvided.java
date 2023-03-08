@@ -4,26 +4,25 @@ import com.fstg.gestioncommertiale.bean.Ville;
 import com.fstg.gestioncommertiale.service.VilleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/GestionCommertiale/Ville")
 public class VilleProvided {
-    @Autowired
-    private VilleService villeService;
-
-
-    public Ville findByNom(String nom) {
+    @GetMapping("/nom/{nom}")
+    public Ville findByNom(@PathVariable String nom) {
         return villeService.findByNom(nom);
     }
-
+    @DeleteMapping("/nom/{nom}")
     @Transactional
-    public int deleteByNom(String nom) {
+    public int deleteByNom( @PathVariable String nom) {
         return villeService.deleteByNom(nom);
     }
-
-    public int save(Ville ville) {
+    @PostMapping("/")
+    public int save( @RequestBody Ville ville) {
         return villeService.save(ville);
     }
+
+    @Autowired
+    private VilleService villeService;
 }
