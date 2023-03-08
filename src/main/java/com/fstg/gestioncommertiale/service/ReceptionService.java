@@ -48,6 +48,9 @@ public class ReceptionService {
             }
         }
         receptionDao.save(reception);
+        for (ReceptionProduit receptionProduit : reception.getReceptionProduit()){
+            receptionProduitService.save(receptionProduit);
+        }
         return 1;
     }
 
@@ -56,4 +59,7 @@ public class ReceptionService {
 
     @Autowired
     private StockService stockService;
+
+    @Autowired
+    private ReceptionProduitService receptionProduitService;
 }
