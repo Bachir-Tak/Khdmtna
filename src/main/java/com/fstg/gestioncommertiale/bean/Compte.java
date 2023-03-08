@@ -3,12 +3,14 @@ package com.fstg.gestioncommertiale.bean;
 import javax.persistence.*;
 
 @Entity
-public class CompteClient {
+public class Compte {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String email;
     private String motDePasse;
+
+    private boolean admin;
     @OneToOne
     private Client client;
 
@@ -42,5 +44,13 @@ public class CompteClient {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 }
