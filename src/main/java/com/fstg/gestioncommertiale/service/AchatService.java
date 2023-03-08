@@ -9,13 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class AchatService {
-    @Autowired
-    private AchatDao achatDao;
-    @Autowired
-    private AchatCommandeService achatCommandeService;
-
-    @Autowired
-    private ClientService clientService;
 
     public Achat findByCode(String code) {
         return achatDao.findByCode(code);
@@ -48,4 +41,10 @@ public class AchatService {
             }
         }
     }
+    @Autowired
+    private AchatDao achatDao;
+    @Autowired
+    private AchatCommandeService achatCommandeService;
+    @Autowired
+    private ClientService clientService;
 }

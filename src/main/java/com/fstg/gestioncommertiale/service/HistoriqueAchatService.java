@@ -8,8 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class HistoriqueAchatService {
-    @Autowired
-    private HistoriqueAchatDao historiqueAchatDao;
 
     public HistoriqueAchat findByRef(String ref) {
         return historiqueAchatDao.findByRef(ref);
@@ -18,4 +16,13 @@ public class HistoriqueAchatService {
     public int deleteByRef(String ref) {
         return historiqueAchatDao.deleteByRef(ref);
     }
+
+    public int  save(HistoriqueAchat historiqueAchat) {
+        historiqueAchatDao.save(historiqueAchat);
+        return 1;
+    }
+
+    @Autowired
+    private HistoriqueAchatDao historiqueAchatDao;
+    
 }

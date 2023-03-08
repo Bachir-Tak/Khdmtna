@@ -11,8 +11,6 @@ import java.util.List;
 
 @Service
 public class AchatCommandeService {
-    @Autowired
-    private AchatCommandeDao achatCommandeDao;
 
     public List<AchatCommande> findByAchatCode(String code) {
         return achatCommandeDao.findByAchatCode(code);
@@ -31,9 +29,10 @@ public class AchatCommandeService {
     public int deleteByCommandeRef(String ref) {
         return achatCommandeDao.deleteByCommandeRef(ref);
     }
-
-
-    public int save(Achat achat, List<AchatCommande> achatCommandes) {
-        return 0;
+    public void save(Achat achat, List<AchatCommande> achatCommandes) {
     }
+
+    @Autowired
+    private AchatCommandeDao achatCommandeDao;
+
 }

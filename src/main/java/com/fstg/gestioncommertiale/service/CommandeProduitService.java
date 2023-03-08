@@ -11,10 +11,7 @@ import java.util.List;
 
 @Service
 public class CommandeProduitService {
-    @Autowired
-    private CommandeProduitDao commandeProduitDao;
-    @Autowired
-    private ProduitService produitService;
+
     public List<CommandeProduit> findByProduitRef(String ref) {
         return commandeProduitDao.findByProduitRef(ref);
     }
@@ -42,5 +39,8 @@ public class CommandeProduitService {
             commandeProduitDao.save(commandeProduit);
         }
     }
-
+    @Autowired
+    private CommandeProduitDao commandeProduitDao;
+    @Autowired
+    private ProduitService produitService;
 }

@@ -10,8 +10,6 @@ import java.util.List;
 
 @Service
 public class ClientService {
-    @Autowired
-    private ClientDao clientDao;
 
     public Client findByCin(String cin) {
         return clientDao.findByCin(cin);
@@ -33,13 +31,15 @@ public class ClientService {
         Client clt = findByCin(client.getCin());
         if (clt != null) {
             return -1;
-        } else {
-            if(client.getCompteClient() != null){
+        }
+        if(client.getCompteClient() != null){
                 return -2;
             }
-            clientDao.save(client);
-            return 1;
+        clientDao.save(client);
+        return 1;
         }
 
-    }
+
+    @Autowired
+    private ClientDao clientDao;
 }

@@ -9,10 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CommandeService {
-    @Autowired
-    private CommandeDao commandeDao;
-    @Autowired
-    private CommandeProduitService commandeProduitService;
+
     public Commande findByRef(String ref) {
         return commandeDao.findByRef(ref);
     }
@@ -24,16 +21,21 @@ public class CommandeService {
     public int save(Commande commande) {
         if(findByRef(commande.getRef()) != null){
             return -1;
-        } else{
+        }
             if (commande.getCommandeProduits().isEmpty()){
                 return -2;
-            }else{
-                for (CommandeProduit commandeProduit : commande.getCommandeProduits()){
+            }
+
+                commandeDao.save(commande);
+                for (CommandeProduit commandeProduit : commande.getCommandeProduits()) {
                     commandeProduitService.save(commande, commande.getCommandeProduits());
                 }
-                commandeDao.save(commande);
                 return 1;
             }
+           @Autowired
+            private CommandeDao commandeDao;
+            @Autowired
+             private CommandeProduitService commandeProduitService;
         }
-     }
-}
+
+

@@ -8,8 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CompteClientService {
-    @Autowired
-    private CompteClientDao compteClientDao;
 
     public CompteClient findByEmail(String email) {
         return compteClientDao.findByEmail(email);
@@ -23,13 +21,15 @@ public class CompteClientService {
         if (compteClient == null || compteClient.getEmail() == null || compteClient.getEmail().isEmpty() || compteClient.getMotDePasse() == null
                 || compteClient.getMotDePasse().isEmpty()) {
             return -1;
-        } else {
-            if (compteClient != null) {
+        }
+        if (compteClient != null) {
                 return -2;
-            } else {
-                compteClientDao.save(compteClient);
+            }
+        compteClientDao.save(compteClient);
                 return 1;
             }
-        }
-    }
+
+
+    @Autowired
+    private CompteClientDao compteClientDao;
 }
