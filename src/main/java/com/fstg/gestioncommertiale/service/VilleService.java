@@ -8,8 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class VilleService {
-    @Autowired
-    private VilleDao villeDao;
 
     public Ville findByNom(String nom) {
         return villeDao.findByNom(nom);
@@ -22,11 +20,13 @@ public class VilleService {
     public int save(Ville ville) {
         if (findByNom(ville.getNom()) != null) {
             return -1;
-        } else {
-            villeDao.save(ville);
-            return 1;
         }
+        villeDao.save(ville);
+            return 1;
+
     }
+    @Autowired
+    private VilleDao villeDao;
 }
 
 
