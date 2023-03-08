@@ -5,36 +5,36 @@ import com.fstg.gestioncommertiale.bean.AchatCommande;
 import com.fstg.gestioncommertiale.service.AchatCommandeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/GestionCommerciale/AchatCommande")
 public class AchatCommandeProvided {
+    @GetMapping("/code/{code}")
+    public List<AchatCommande> findByAchatCode( @PathVariable String code) {
+        return achatCommandeService.findByAchatCode(code);
+    }
+     @DeleteMapping("/code/{code}")
+    @Transactional
+    public int deleteByAchatCode(@PathVariable String code) {
+        return achatCommandeService.deleteByAchatCode(code);
+    }
+     @GetMapping("/ref/{ref}")
+    public List<AchatCommande> findByCommandeRef( @PathVariable String ref) {
+        return achatCommandeService.findByCommandeRef(ref);
+    }
+    @DeleteMapping("/ref/{ref}")
+    @Transactional
+    public int deleteByCommandeRef( @PathVariable String ref) {
+        return achatCommandeService.deleteByCommandeRef(ref);
+    }
+    @PostMapping("/")
+    public int save( @RequestBody AchatCommande achatCommande) {
+        return achatCommandeService.save(achatCommande);
+    }
     @Autowired
     private AchatCommandeService achatCommandeService;
 
-    public List<AchatCommande> findByAchatCode(String code) {
-        return achatCommandeService.findByAchatCode(code);
-    }
-
-    @Transactional
-    public int deleteByAchatCode(String code) {
-        return achatCommandeService.deleteByAchatCode(code);
-    }
-
-    public List<AchatCommande> findByCommandeRef(String ref) {
-        return achatCommandeService.findByCommandeRef(ref);
-    }
-
-    @Transactional
-    public int deleteByCommandeRef(String ref) {
-        return achatCommandeService.deleteByCommandeRef(ref);
-    }
-
-//    public int save(Achat achat, List<AchatCommande> achatCommandes) {
-//        return achatCommandeService.save(achat, achatCommandes);
-//    }
 }

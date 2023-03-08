@@ -3,9 +3,9 @@ package com.fstg.gestioncommertiale.service;
 import com.fstg.gestioncommertiale.bean.Commande;
 import com.fstg.gestioncommertiale.bean.Livraison;
 import com.fstg.gestioncommertiale.bean.LivraisonCommande;
-import com.fstg.gestioncommertiale.dao.CommandeDao;
+
 import com.fstg.gestioncommertiale.dao.LivraisonCommandeDao;
-import com.fstg.gestioncommertiale.dao.LivraisonDao;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,12 +14,6 @@ import java.util.List;
 
 @Service
 public class LivraisonCommandeService {
-    @Autowired
-    private LivraisonCommandeDao livraisonCommandeDao;
-    @Autowired
-    private LivraisonService livraisonService;
-    @Autowired
-    private CommandeService commandeService;
 
     public List<LivraisonCommande> findByLivraisonRef(String ref) {
         return livraisonCommandeDao.findByLivraisonRef(ref);
@@ -38,32 +32,29 @@ public class LivraisonCommandeService {
     }
 
 
-    public LivraisonCommande save(String livraisonRef, String commandeRef) {
-    //Verifier si la Livraison existe
-    Livraison livraison = livraisonService.findByRef(livraisonRef);
+    public void  save ( LivraisonCommande livraisonCommande) {
+        Livraison livraison = livraisonService.findByRef(livraisonCommande.getLivraison().getRef());
     if (livraison == null) {
-        //Creer une nouvelle Livraison si elle n'existe pas
         livraison = new Livraison();
-        livraison.setRef(livraisonRef);
+        livraison.setRef(livraisonCommande.getLivraison().getRef());
         livraisonService.save(livraison);
     }
-
-    //Verifier si la Commande existe
-    Commande commande = commandeService.findByRef(commandeRef);
-    if (commande == null) {
-        //Creer une nouvelle Commande si elle n'existe pas
+     Commande commande = commandeService.findByRef(livraisonCommande.getCommande().getRef());
+      if (commande == null) {
         commande = new Commande();
-        commande.setRef(commandeRef);
+        commande.setRef(livraisonCommande.getCommande().getRef());
         commandeService.save(commande);
     }
-
-    //Creer une ordre pour la livraison
-    LivraisonCommande livraisonCommande = new LivraisonCommande();
     livraisonCommande.setLivraison(livraison);
     livraisonCommande.setCommande(commande);
-
-    return livraisonCommandeDao.save(livraisonCommande);
+    livraisonCommandeDao.save(livraisonCommande);
 }
+    @Autowired
+    private LivraisonCommandeDao livraisonCommandeDao;
+    @Autowired
+    private LivraisonService livraisonService;
+    @Autowired
+    private CommandeService commandeService;
 }
 
 

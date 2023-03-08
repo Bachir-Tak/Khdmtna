@@ -8,8 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class AvoirLivraisonService {
-    @Autowired
-    private AvoirLivraisonDao avoirLivraisonDao;
 
     public AvoirLivraison findByCode(String code) {
         return avoirLivraisonDao.findByCode(code);
@@ -20,12 +18,13 @@ public class AvoirLivraisonService {
         return avoirLivraisonDao.deleteByCode(code);
     }
     public int save(AvoirLivraison avoirLivraison) {
-        AvoirLivraison existingAvoirLivraison = avoirLivraisonDao.findByCode(avoirLivraison.getCode());
-        if (existingAvoirLivraison != null) {
+        if (findByCode(avoirLivraison.getCode()) != null) {
             return -1;
-        }
+        } else {
             avoirLivraisonDao.save(avoirLivraison);
             return 1;
-
+        }
     }
+    @Autowired
+    private AvoirLivraisonDao avoirLivraisonDao;
 }

@@ -8,15 +8,13 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Service
-public class PaiementService {
-    @Autowired
-    private PaiementDao paiementDao;
+   @Service
+    public class PaiementService {
 
     public Paiement findByCode(String code) {
         return paiementDao.findByCode(code);
     }
-@Transactional
+    @Transactional
     public int deleteByCode(String code) {
         return paiementDao.deleteByCode(code);
     }
@@ -33,4 +31,6 @@ public class PaiementService {
             return 1 ;
         }
     }
+       @Autowired
+       private PaiementDao paiementDao;
 }
