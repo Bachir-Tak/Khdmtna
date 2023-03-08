@@ -35,7 +35,7 @@ public class AchatService {
 
                 achatDao.save(achat);
                 for (AchatCommande achatCommande : achat.getAchatCommandes()) {
-                    achatCommandeService.save(achat, achat.getAchatCommandes());
+                    achatCommandeService.save(achatCommande);
                 }
                 return 1;
             }

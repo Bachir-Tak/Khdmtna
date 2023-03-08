@@ -29,8 +29,9 @@ public class AchatCommandeService {
     public int deleteByCommandeRef(String ref) {
         return achatCommandeDao.deleteByCommandeRef(ref);
     }
-    public void save(Achat achat, List<AchatCommande> achatCommandes) {
-
+    public int  save(AchatCommande achatCommande) {
+        achatCommandeDao.save(achatCommande);
+        return 1;
     }
 
     @Autowired
