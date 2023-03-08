@@ -12,6 +12,8 @@ public class Client {
     private String prenom;
 
     private String cin;
+    @OneToOne
+    private CompteClient compteClient;
     @ManyToOne
     private Ville ville;
 
@@ -53,5 +55,13 @@ public class Client {
 
     public void setVille(Ville ville) {
         this.ville = ville;
+    }
+
+    public CompteClient getCompteClient() {
+        return compteClient;
+    }
+
+    public void setCompteClient(CompteClient compteClient) {
+        this.compteClient = compteClient;
     }
 }
