@@ -1,5 +1,6 @@
 package com.fstg.gestioncommertiale.dao;
 
+import com.fstg.gestioncommertiale.bean.Livraison;
 import com.fstg.gestioncommertiale.bean.LivraisonCommande;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -12,7 +13,4 @@ public interface LivraisonCommandeDao extends JpaRepository<LivraisonCommande, L
     int deleteByLivraisonRef(String ref);
     List<LivraisonCommande> findByCommandeRef(String ref);
     int deleteByCommandeRef(String ref);
-
-
-
 }

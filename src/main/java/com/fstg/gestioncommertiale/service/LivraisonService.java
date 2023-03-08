@@ -9,6 +9,7 @@ import com.fstg.gestioncommertiale.dao.PaiementDao;
 import com.fstg.gestioncommertiale.dao.RecuRemboursementDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class LivraisonService {
@@ -20,6 +21,7 @@ public class LivraisonService {
     }
     @Autowired
     private RecuRemboursementDao recuRemboursementDao;
+    @Transactional
     public void delete(String ref){
         Livraison livraison = livraisonDao.findByRef(ref);
         RecuRemboursement recuRemboursement = recuRemboursementDao.findByCode(livraison.getAchat().getCode());
@@ -29,10 +31,8 @@ public class LivraisonService {
     }
     @Autowired
     private PaiementDao paiementDao;
-    public int save(LivraisonCommande livraisonCommande) {
-        Livraison livraison = livraisonDao.findByRef();
+    public int save(Livraison livraison) {
         Paiement paiement = paiementService.getPaiementByCode(livraison.getAchat().getCode());
-
         if (paiement != null && paiement.isPaiementEffectue()) {
             livraisonDao.save(livraison);
             return 1;
