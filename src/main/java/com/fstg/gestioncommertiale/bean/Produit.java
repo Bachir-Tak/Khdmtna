@@ -16,7 +16,7 @@ public class Produit {
     private String ref;
 
     private Long prixVente;
-    private Long prixAchat;
+
 
     public String getRef() {
         return ref;
@@ -49,13 +49,7 @@ public class Produit {
         this.prixVente = prixVente;
     }
 
-    public Long getPrixAchat() {
-        return prixAchat;
-    }
 
-    public void setPrixAchat(Long prixAchat) {
-        this.prixAchat = prixAchat;
-    }
 
 
 
