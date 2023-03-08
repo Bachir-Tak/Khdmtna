@@ -37,6 +37,11 @@ public class FournisseurProduitService {
     public int deleteByFournisseurCode(String code) {
         return fournisseurProduitDao.deleteByFournisseurCode(code);
     }
+
+    public List<FournisseurProduit> findAll() {
+        return fournisseurProduitDao.findAll();
+    }
+
     @Autowired
     private FourbisseurProduitDao fournisseurProduitDao;
     @Autowired

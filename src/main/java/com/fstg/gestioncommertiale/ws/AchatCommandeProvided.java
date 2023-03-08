@@ -13,27 +13,32 @@ import java.util.List;
 @RequestMapping("/GestionCommerciale/AchatCommande")
 public class AchatCommandeProvided {
     @GetMapping("/code/{code}")
-    public List<AchatCommande> findByAchatCode( @PathVariable String code) {
+    public List<AchatCommande> findByAchatCode(@PathVariable String code) {
         return achatCommandeService.findByAchatCode(code);
     }
-     @DeleteMapping("/code/{code}")
+
+    @DeleteMapping("/code/{code}")
     @Transactional
     public int deleteByAchatCode(@PathVariable String code) {
         return achatCommandeService.deleteByAchatCode(code);
     }
-     @GetMapping("/ref/{ref}")
-    public List<AchatCommande> findByCommandeRef( @PathVariable String ref) {
+
+    @GetMapping("/ref/{ref}")
+    public List<AchatCommande> findByCommandeRef(@PathVariable String ref) {
         return achatCommandeService.findByCommandeRef(ref);
     }
+
     @DeleteMapping("/ref/{ref}")
     @Transactional
-    public int deleteByCommandeRef( @PathVariable String ref) {
+    public int deleteByCommandeRef(@PathVariable String ref) {
         return achatCommandeService.deleteByCommandeRef(ref);
     }
+
     @PostMapping("/")
-    public int save( @RequestBody AchatCommande achatCommande) {
+    public int save(@RequestBody AchatCommande achatCommande) {
         return achatCommandeService.save(achatCommande);
     }
+
     @Autowired
     private AchatCommandeService achatCommandeService;
 

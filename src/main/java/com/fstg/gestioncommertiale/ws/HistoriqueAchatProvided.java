@@ -10,16 +10,18 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/GestionCommertiale/HistoriqueAchat")
 public class HistoriqueAchatProvided {
     @GetMapping("/ref/{ref}")
-    public HistoriqueAchat findByRef( @PathVariable String ref) {
+    public HistoriqueAchat findByRef(@PathVariable String ref) {
         return historiqueAchatService.findByRef(ref);
     }
+
     @DeleteMapping("/ref/{ref}")
     @Transactional
-    public int deleteByRef( @PathVariable String ref) {
+    public int deleteByRef(@PathVariable String ref) {
         return historiqueAchatService.deleteByRef(ref);
     }
+
     @PostMapping("/")
-    public int save( @RequestBody HistoriqueAchat historiqueAchat) {
+    public int save(@RequestBody HistoriqueAchat historiqueAchat) {
         return historiqueAchatService.save(historiqueAchat);
     }
 

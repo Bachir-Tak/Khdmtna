@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/GestionCommertiale/ModeDePaiement")
 public class ModeDePaiementProvided {
     @GetMapping("/code/{code}")
-    public ModeDePaiement findByCode( @PathVariable String code) {
+    public ModeDePaiement findByCode(@PathVariable String code) {
         return modeDePaiementService.findByCode(code);
     }
 
@@ -19,14 +19,17 @@ public class ModeDePaiementProvided {
     public int deleteByCode(@PathVariable String code) {
         return modeDePaiementService.deleteByCode(code);
     }
+
     @GetMapping("/")
     public List<ModeDePaiement> findAll() {
         return modeDePaiementService.findAll();
     }
+
     @PostMapping("/")
     public int save(@RequestBody ModeDePaiement modeDePaiement) {
         return modeDePaiementService.save(modeDePaiement);
     }
+
     @Autowired
     private ModeDePaiementService modeDePaiementService;
 

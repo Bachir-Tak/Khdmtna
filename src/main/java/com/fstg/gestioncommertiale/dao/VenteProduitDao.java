@@ -13,16 +13,12 @@ public interface VenteProduitDao extends JpaRepository<VenteProduit, Long> {
     int deleteByProduitRef(String ref);
 
 
-    List<VenteProduit> findByProduitId(Long id);
 
-    int deleteByProduitId(Long id);
 
     List<VenteProduit> findByVenteRef(String ref);
 
     int deleteByVenteRef(String ref);
 
-    List<VenteProduit> findByVenteId(Long id);
 
-    int deleteByVenteId(Long id);
 
 }

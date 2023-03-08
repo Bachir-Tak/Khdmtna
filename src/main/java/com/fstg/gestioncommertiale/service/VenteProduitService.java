@@ -48,5 +48,7 @@ public class VenteProduitService {
         return venteProduitDao.deleteByVenteRef(ref);
     }
 
-
+    public List<VenteProduit> findAll() {
+        return venteProduitDao.findAll();
+    }
 }
