@@ -8,8 +8,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/GestionCommertiale/Recu")
 public class RecuProvided {
-    @Autowired
-    private RecuService recuService ;
     @GetMapping("/code/{code}")
     public Recu findByCode(@PathVariable String code) {
         return recuService.findByCode(code);
@@ -22,8 +20,11 @@ public class RecuProvided {
     public List<Recu> findAll() {
         return recuService.findAll();
     }
-     @PostMapping("/")
+    @PostMapping("/")
     public int save(@RequestBody Recu recu) {
         return recuService.save(recu);
     }
+    @Autowired
+    private RecuService recuService ;
+
 }

@@ -7,25 +7,26 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController @RequestMapping("api/v1/RecapitulatifAchat")
+@RestController @RequestMapping("/GestionCommertiale/RecapitulatifAchat")
 public class RecapitulatifAchatProvided {
-    @Autowired
-    private RecapitulatifAchatService recapitulatifAchatService;
-@GetMapping("/code/{code}")
+    @GetMapping("/code/{code}")
     public RecapitulatifAchat findByCode(@PathVariable String code) {
         return recapitulatifAchatService.findByCode(code);
     }
 
-@DeleteMapping("/code/{code}")
+    @DeleteMapping("/code/{code}")
     public int deleteByCode(@PathVariable String code) {
         return recapitulatifAchatService.deleteByCode(code);
     }
-@GetMapping("/")
+    @GetMapping("/")
     public List<RecapitulatifAchat> findAll() {
         return recapitulatifAchatService.findAll();
     }
-@PostMapping("/")
+    @PostMapping("/")
     public int save(@RequestBody RecapitulatifAchat recapitulatifAchat) {
         return recapitulatifAchatService.save(recapitulatifAchat);
     }
+    @Autowired
+    private RecapitulatifAchatService recapitulatifAchatService;
+
 }

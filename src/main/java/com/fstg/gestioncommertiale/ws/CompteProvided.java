@@ -4,24 +4,24 @@ import com.fstg.gestioncommertiale.bean.Compte;
 import com.fstg.gestioncommertiale.service.CompteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/GestionCommertiale/Compte")
 public class CompteProvided {
-    @Autowired
-    private CompteService compteService;
-
-    public Compte findByEmail(String email) {
+     @GetMapping("/emai/{email}")
+    public Compte findByEmail( @PathVariable String email) {
         return compteService.findByEmail(email);
     }
+    @DeleteMapping("/emai/{email}")
     @Transactional
-    public int deleteByEmail(String email) {
+    public int deleteByEmail( @PathVariable String email) {
         return compteService.deleteByEmail(email);
     }
-
-    public int save(Compte compte) {
+     @PostMapping("/")
+    public int save( @RequestBody Compte compte) {
         return compteService.save(compte);
     }
+    @Autowired
+    private CompteService compteService;
 }

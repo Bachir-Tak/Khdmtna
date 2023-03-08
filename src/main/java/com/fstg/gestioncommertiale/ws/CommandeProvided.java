@@ -4,25 +4,26 @@ import com.fstg.gestioncommertiale.bean.Commande;
 import com.fstg.gestioncommertiale.service.CommandeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/GestionCommertiale/Commande")
 public class CommandeProvided {
+    @GetMapping("/ref/{ref}")
+    public Commande findByRef( @PathVariable String ref) {
+        return commandeService.findByRef(ref);
+    }
+    @DeleteMapping("/ref/{ref}")
+    @Transactional
+    public int deleteByRef( @PathVariable String ref) {
+        return commandeService.deleteByRef(ref);
+    }
+    @PostMapping("/")
+    public int save( @RequestBody Commande commande) {
+        return commandeService.save(commande);
+    }
+
     @Autowired
     private CommandeService commandeService;
 
-    public Commande findByRef(String ref) {
-        return commandeService.findByRef(ref);
-    }
-
-    @Transactional
-    public int deleteByRef(String ref) {
-        return commandeService.deleteByRef(ref);
-    }
-
-    public int save(Commande commande) {
-        return commandeService.save(commande);
-    }
 }
