@@ -11,6 +11,8 @@ public class CommandeProduit {
 
     private BigDecimal quantite;
 
+    private BigDecimal prixUnitaire;
+
     private BigDecimal prixTotale;
     @ManyToOne
     private Commande commande;
@@ -43,13 +45,7 @@ public class CommandeProduit {
         this.prixTotale = prixTotale;
     }
 
-    public BigDecimal getQuantiteCommande() {
-        return quantite;
-    }
 
-    public void setQuantiteCommande(BigDecimal quantiteCommande) {
-        this.quantite = quantiteCommande;
-    }
 
     public Produit getProduit() {
         return produit;
@@ -57,5 +53,21 @@ public class CommandeProduit {
 
     public void setProduit(Produit produit) {
         this.produit = produit;
+    }
+
+    public BigDecimal getPrixUnitaire() {
+        return prixUnitaire;
+    }
+
+    public void setPrixUnitaire(BigDecimal prixUnitaire) {
+        this.prixUnitaire = prixUnitaire;
+    }
+
+    public BigDecimal getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(BigDecimal quantite) {
+        this.quantite = quantite;
     }
 }

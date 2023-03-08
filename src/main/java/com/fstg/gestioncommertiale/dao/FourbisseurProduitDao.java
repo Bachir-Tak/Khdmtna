@@ -12,15 +12,11 @@ public interface FourbisseurProduitDao extends JpaRepository<FournisseurProduit,
 
     int deleteByProduitRef(String ref);
 
-    List<FournisseurProduit> findByProduitId(Long id);
 
-    int deleteByProduitId(Long id);
 
     List<FournisseurProduit> findByFournisseurCode(String code);
 
     int deleteByFournisseurCode(String code);
 
-    List<FournisseurProduit> findByFournisseurId(Long id);
-
-    int deleteByFournisseurId(Long id);
+   ;
 }

@@ -15,14 +15,12 @@ public class FournisseurProduitService {
     @Autowired
     private FourbisseurProduitDao fourbisseurProduitDao;
     @Autowired
-    private FournisseurDao fournisseurDao;
+    private  FournisseurService fournisseurService;
 
-    public Fournisseur findByCode(String code) {
-        return fournisseurDao.findByCode(code);
-    }
 
-    public int  save(FournisseurProduit fournisseurProduit, Fournisseur fournisseur){
-        if (findByFournisseurCode(fournisseur.getCode()) != null) {
+
+    public int  save(FournisseurProduit fournisseurProduit){
+        if (fournisseurService.findByCode(fournisseurProduit.getFournisseur().getCode())!=null) {
             return -1;
         }else {
             fourbisseurProduitDao.save(fournisseurProduit);
@@ -40,27 +38,11 @@ public class FournisseurProduitService {
         return fourbisseurProduitDao.deleteByProduitRef(ref);
     }
 
-    public List<FournisseurProduit> findByProduitId(Long id) {
-        return fourbisseurProduitDao.findByProduitId(id);
-    }
-    @Transactional
-    public int deleteByProduitId(Long id) {
-        return fourbisseurProduitDao.deleteByProduitId(id);
-    }
-
     public List<FournisseurProduit> findByFournisseurCode(String code) {
         return fourbisseurProduitDao.findByFournisseurCode(code);
     }
-    @Transactional
+@Transactional
     public int deleteByFournisseurCode(String code) {
         return fourbisseurProduitDao.deleteByFournisseurCode(code);
-    }
-
-    public List<FournisseurProduit> findByFournisseurId(Long id) {
-        return fourbisseurProduitDao.findByFournisseurId(id);
-    }
-    @Transactional
-    public int deleteByFournisseurId(Long id) {
-        return fourbisseurProduitDao.deleteByFournisseurId(id);
     }
 }

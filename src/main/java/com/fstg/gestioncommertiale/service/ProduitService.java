@@ -26,9 +26,9 @@ public class ProduitService {
         }
     }
 
-    public int update(Produit produit, Long prixAchat, Long prixVente) {
+    public int update(Produit produit, Long prixVente) {
         if (findByRef(produit.getRef()) != null) {
-            produit.setPrixAchat(prixAchat);
+
             produit.setPrixVente(prixVente);
             produitDao.save(produit);
             return 1;
