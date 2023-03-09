@@ -1,9 +1,29 @@
 package com.fstg.gestioncommertiale.ws;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.fstg.gestioncommertiale.bean.Remboursement;
+import com.fstg.gestioncommertiale.service.RemboursementService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import javax.transaction.Transactional;
 
 @RestController
-@RequestMapping
+@RequestMapping("/GestionCommertiale/Remboursement")
 public class RemboursementProvided {
+    @Autowired
+    private RemboursementService remboursementService;
+@GetMapping("/code/{code}")
+    public Remboursement findByCode(@PathVariable String code) {
+        return remboursementService.findByCode(code);
+    }
+@DeleteMapping("/code/{code}")
+    public int deleteByCode(@PathVariable String code) {
+        return remboursementService.deleteByCode(code);
+    }
+@PostMapping("/")
+    public int save(@RequestBody Remboursement remboursement) {
+        return remboursementService.save(remboursement);
+    }
+
+
 }

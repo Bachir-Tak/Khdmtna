@@ -1,9 +1,25 @@
 package com.fstg.gestioncommertiale.ws;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.fstg.gestioncommertiale.bean.RecuRemboursement;
+import com.fstg.gestioncommertiale.service.RecuRemboursementService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/GestionCommertiale/RecuRemboursement")
 public class RecuRemboursementProvided {
+    @Autowired
+    private RecuRemboursementService recuRemboursementService;
+@GetMapping("/code/{code}")
+    public RecuRemboursement findByCode(@PathVariable String code) {
+        return recuRemboursementService.findByCode(code);
+    }
+    @DeleteMapping("/code/{code}")
+    public int deleteByCode(@PathVariable String code) {
+        return recuRemboursementService.deleteByCode(code);
+    }
+@PostMapping("/")
+    public int save(RecuRemboursement recuRemboursement) {
+        return recuRemboursementService.save(recuRemboursement);
+    }
 }
