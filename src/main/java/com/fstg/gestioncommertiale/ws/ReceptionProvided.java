@@ -1,13 +1,37 @@
 package com.fstg.gestioncommertiale.ws;
 
+import com.fstg.gestioncommertiale.bean.Magasin;
+import com.fstg.gestioncommertiale.bean.Reception;
 import com.fstg.gestioncommertiale.service.ReceptionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.transaction.Transactional;
+import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("api/v1/reception")
 public class ReceptionProvided {
     @Autowired
     private ReceptionService receptionService;
+
+    @GetMapping("/ref/{ref}")
+    public Reception findByRef(@PathVariable String ref) {
+        return receptionService.findByRef(ref);
+    }
+
+    @DeleteMapping("/ref/{ref}")
+    public int deleteByRef(@PathVariable String ref) {
+        return receptionService.deleteByRef(ref);
+    }
+
+    @GetMapping("/")
+    public List<Reception> findAll() {
+        return receptionService.findAll();
+    }
+
+    @PostMapping("/")
+    public int save(@RequestBody Reception reception, @RequestBody Magasin magasin) {
+        return receptionService.save(reception, magasin);
+    }
 }
