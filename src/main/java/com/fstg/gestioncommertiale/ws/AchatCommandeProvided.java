@@ -31,7 +31,7 @@ public class AchatCommandeProvided {
         return achatCommandeService.deleteByCommandeRef(ref);
     }
     @PostMapping("/")
-    public int save( @RequestBody AchatCommande achatCommande) {
+    public int save(@RequestBody AchatCommande achatCommande) {
         return achatCommandeService.save(achatCommande);
     }
     @Autowired
