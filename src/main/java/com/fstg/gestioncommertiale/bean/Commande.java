@@ -14,6 +14,8 @@ public class Commande {
     private LocalDateTime date;
     @OneToMany(mappedBy = "commande")
     private List<CommandeProduit> commandeProduits;
+     @ManyToOne
+    private RecapitulatifAchat recapitulatifAchat;
 
 
     public Long getId() {

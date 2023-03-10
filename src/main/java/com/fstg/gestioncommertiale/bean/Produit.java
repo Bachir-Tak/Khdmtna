@@ -16,10 +16,8 @@ public class Produit {
     private String ref;
 
     private Long prixVente;
-
-
-
-
+    @ManyToOne
+    private CategorieProduit categorieProduit;
     public String getRef() {
         return ref;
     }
@@ -50,10 +48,5 @@ public class Produit {
     public void setPrixVente(Long prixVente) {
         this.prixVente = prixVente;
     }
-
-
-
-
-
 
 }

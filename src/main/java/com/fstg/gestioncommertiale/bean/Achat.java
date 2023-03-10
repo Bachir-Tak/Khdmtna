@@ -13,6 +13,8 @@ public class Achat {
     private List<AchatCommande> achatCommandes;
     @ManyToOne
     private Client client;
+    @ManyToOne
+    private HistoriqueAchat historiqueAchat;
 
     public Long getId() {
         return id;

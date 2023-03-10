@@ -11,14 +11,6 @@ import java.util.List;
 @Service
 public class DemandeProduitService {
 
-    public List<DemandeProduit> findByDemandeRef(String ref) {
-        return demandeProduitDao.findByDemandeRef(ref);
-    }
-    @Transactional
-    public int deleteByDemandeRef(String ref) {
-        return demandeProduitDao.deleteByDemandeRef(ref);
-    }
-
     public List<DemandeProduit> findAll() {
         return demandeProduitDao.findAll();
     }
@@ -28,4 +20,12 @@ public class DemandeProduitService {
     }
     @Autowired
     private DemandeProduitDao demandeProduitDao;
+
+    public List<DemandeProduit> findByDemandeCode(String code) {
+        return demandeProduitDao.findByDemandeCode(code);
+    }
+    @Transactional
+    public int deleteByDemandeCode(String code) {
+        return demandeProduitDao.deleteByDemandeCode(code);
+    }
 }

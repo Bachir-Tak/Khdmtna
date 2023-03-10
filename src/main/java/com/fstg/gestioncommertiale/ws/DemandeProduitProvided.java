@@ -13,15 +13,15 @@ import java.util.List;
 public class DemandeProduitProvided {
     @Autowired
     private DemandeProduitService demandeProduitService;
-
-    @GetMapping("/ref/{ref}")
-    public List<DemandeProduit> findByDemandeRef(@PathVariable String ref) {
-        return demandeProduitService.findByDemandeRef(ref);
+    @GetMapping("/code/{code}")
+    public List<DemandeProduit> findByDemandeCode( @PathVariable String code) {
+        return demandeProduitService.findByDemandeCode(code);
     }
+    @DeleteMapping("/code/{code}")
 
-    @DeleteMapping("/ref/{ref}")
-    public int deleteByDemandeRef(@PathVariable String ref) {
-        return demandeProduitService.deleteByDemandeRef(ref);
+    @Transactional
+    public int deleteByDemandeCode( @PathVariable String code) {
+        return demandeProduitService.deleteByDemandeCode(code);
     }
 
     @GetMapping("/")

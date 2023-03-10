@@ -14,19 +14,19 @@ public class LivraisonCommandeProvided {
     public List<LivraisonCommande> findByLivraisonRef(String ref) {
         return livraisonCommandeService.findByLivraisonRef(ref);
     }
-    @DeleteMapping("/ref/{ref}")
+    @DeleteMapping("/livraisonRef/{ livraisonRef}")
     @Transactional
-    public int deleteByLivraisonRef(@PathVariable String ref) {
-        return livraisonCommandeService.deleteByLivraisonRef(ref);
+    public int deleteByLivraisonRef(@PathVariable String livraisonRef) {
+        return livraisonCommandeService.deleteByLivraisonRef(livraisonRef);
     }
     @GetMapping("/ref/{ref}")
     public List<LivraisonCommande> findByCommandeRef(@PathVariable String ref) {
         return livraisonCommandeService.findByCommandeRef(ref);
     }
-    @DeleteMapping("/ref/{ref}")
+    @DeleteMapping("/commandeRef/{commandeRef}")
     @Transactional
-    public int deleteByCommandeRef(@PathVariable String ref) {
-        return livraisonCommandeService.deleteByCommandeRef(ref);
+    public int deleteByCommandeRef(@PathVariable String commandeRef) {
+        return livraisonCommandeService.deleteByCommandeRef(commandeRef);
     }
     @PostMapping("/")
     public int save( @RequestBody LivraisonCommande livraisonCommande) {

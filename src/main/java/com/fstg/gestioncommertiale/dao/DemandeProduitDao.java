@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface DemandeProduitDao extends JpaRepository<DemandeProduit,Long> {
-    List<DemandeProduit> findByDemandeRef(String ref);
+    List<DemandeProduit> findByDemandeCode(String code);
 
-    int deleteByDemandeRef(String ref);
+    int deleteByDemandeCode(String code);
 }
