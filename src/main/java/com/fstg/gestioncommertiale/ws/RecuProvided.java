@@ -4,7 +4,9 @@ import com.fstg.gestioncommertiale.bean.Recu;
 import com.fstg.gestioncommertiale.service.RecuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
+
 @RestController
 @RequestMapping("/GestionCommertiale/Recu")
 public class RecuProvided {
@@ -12,19 +14,23 @@ public class RecuProvided {
     public Recu findByCode(@PathVariable String code) {
         return recuService.findByCode(code);
     }
+
     @DeleteMapping("/code/{code}")
     public int deleteByCode(@PathVariable String code) {
         return recuService.deleteByCode(code);
     }
+
     @GetMapping("/")
     public List<Recu> findAll() {
         return recuService.findAll();
     }
+
     @PostMapping("/")
     public int save(@RequestBody Recu recu) {
         return recuService.save(recu);
     }
+
     @Autowired
-    private RecuService recuService ;
+    private RecuService recuService;
 
 }

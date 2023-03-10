@@ -13,13 +13,15 @@ public class VilleProvided {
     public Ville findByNom(@PathVariable String nom) {
         return villeService.findByNom(nom);
     }
+
     @DeleteMapping("/nom/{nom}")
     @Transactional
-    public int deleteByNom( @PathVariable String nom) {
+    public int deleteByNom(@PathVariable String nom) {
         return villeService.deleteByNom(nom);
     }
+
     @PostMapping("/")
-    public int save( @RequestBody Ville ville) {
+    public int save(@RequestBody Ville ville) {
         return villeService.save(ville);
     }
 

@@ -10,16 +10,18 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/GestionCommertiale/Commande")
 public class CommandeProvided {
     @GetMapping("/ref/{ref}")
-    public Commande findByRef( @PathVariable String ref) {
+    public Commande findByRef(@PathVariable String ref) {
         return commandeService.findByRef(ref);
     }
+
     @DeleteMapping("/ref/{ref}")
     @Transactional
-    public int deleteByRef( @PathVariable String ref) {
+    public int deleteByRef(@PathVariable String ref) {
         return commandeService.deleteByRef(ref);
     }
+
     @PostMapping("/")
-    public int save( @RequestBody Commande commande) {
+    public int save(@RequestBody Commande commande) {
         return commandeService.save(commande);
     }
 

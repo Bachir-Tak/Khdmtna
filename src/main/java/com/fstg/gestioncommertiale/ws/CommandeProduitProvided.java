@@ -13,25 +13,29 @@ import java.util.List;
 @RequestMapping("/GestionCommertiale/CommandeProduit")
 public class CommandeProduitProvided {
     @GetMapping("ProduitRef/{ProduitRef}")
-    public List<CommandeProduit> findByProduitRef ( @PathVariable String ProduitRef) {
+    public List<CommandeProduit> findByProduitRef(@PathVariable String ProduitRef) {
         return commandeProduitService.findByProduitRef(ProduitRef);
     }
+
     @DeleteMapping("ProduitRef/{ProduitRef}")
     @Transactional
-    public int deleteByProduitRef( @PathVariable String ProduitRef) {
+    public int deleteByProduitRef(@PathVariable String ProduitRef) {
         return commandeProduitService.deleteByProduitRef(ProduitRef);
     }
+
     @GetMapping("/ClientRef/{ClientRef}")
-    public List<CommandeProduit> findByCommandeRef( @PathVariable String ClientRef) {
+    public List<CommandeProduit> findByCommandeRef(@PathVariable String ClientRef) {
         return commandeProduitService.findByCommandeRef(ClientRef);
     }
+
     @DeleteMapping("/ClientRef/{ClientRef}")
     @Transactional
-    public int deleteByCommandeRef( @PathVariable String ClientRef) {
+    public int deleteByCommandeRef(@PathVariable String ClientRef) {
         return commandeProduitService.deleteByCommandeRef(ClientRef);
     }
+
     @PostMapping("/")
-    public void save( @RequestBody Commande commande, List<CommandeProduit> commandeProduits) {
+    public void save(@RequestBody Commande commande, List<CommandeProduit> commandeProduits) {
         commandeProduitService.save(commande, commandeProduits);
     }
 
