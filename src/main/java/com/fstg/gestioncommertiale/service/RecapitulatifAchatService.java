@@ -10,8 +10,6 @@ import java.util.List;
 
 @Service
 public class RecapitulatifAchatService {
-    @Autowired
-    private RecapitulatifAchatDao recapitulatifAchatDao;
 
     public RecapitulatifAchat findByCode(String code) {
         return recapitulatifAchatDao.findByCode(code);
@@ -34,4 +32,6 @@ public class RecapitulatifAchatService {
              return 1;
         }
     }
+    @Autowired
+    private RecapitulatifAchatDao recapitulatifAchatDao;
 }

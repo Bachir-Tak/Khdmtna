@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/reception")
+@RequestMapping("/GestionCommertiale/reception")
 public class ReceptionProvided {
     @Autowired
     private ReceptionService receptionService;

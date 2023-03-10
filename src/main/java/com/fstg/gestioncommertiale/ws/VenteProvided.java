@@ -37,7 +37,7 @@ public class VenteProvided {
 
     @DeleteMapping("/Venteref/{Venteref}")
     @Transactional
-    public int deleteByVenteRef(String Venteref) {
+    public int deleteByVenteRef( @PathVariable String Venteref) {
         return venteProduitService.deleteByVenteRef(Venteref);
     }
 

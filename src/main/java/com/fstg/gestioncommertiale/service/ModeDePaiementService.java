@@ -11,10 +11,6 @@ import java.util.List;
 @Service
 public class ModeDePaiementService {
 
-
-    @Autowired
-    private ModeDePaiementDao modeDePaiementDao;
-
     public ModeDePaiement findByCode(String code) {
         return modeDePaiementDao.findByCode(code);
     }
@@ -36,4 +32,6 @@ public class ModeDePaiementService {
            return 1 ;
         }
     }
+    @Autowired
+    private ModeDePaiementDao modeDePaiementDao;
 }

@@ -26,18 +26,18 @@ public class FournisseurProduitProvided {
 
     @DeleteMapping("/Produitref/{Produitref}")
     @Transactional
-    public int deleteByProduitRef(String Produitref) {
+    public int deleteByProduitRef( @PathVariable String Produitref) {
         return fournisseurProduitService.deleteByProduitRef(Produitref);
     }
 
     @GetMapping("fournisseurCode/{fournisseurCode}")
-    public List<FournisseurProduit> findByFournisseurCode(String fournisseurCode) {
+    public List<FournisseurProduit> findByFournisseurCode( @PathVariable String fournisseurCode) {
         return fournisseurProduitService.findByFournisseurCode(fournisseurCode);
     }
 
     @DeleteMapping("/fournisseurCode/{fournisseurCode}")
     @Transactional
-    public int deleteByFournisseurCode(String fournisseurCode) {
+    public int deleteByFournisseurCode( @PathVariable String fournisseurCode) {
         return fournisseurProduitService.deleteByFournisseurCode(fournisseurCode);
     }
 

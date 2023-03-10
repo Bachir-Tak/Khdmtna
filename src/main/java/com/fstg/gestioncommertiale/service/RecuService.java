@@ -10,10 +10,6 @@ import java.util.List;
 
 @Service
 public class RecuService {
-    @Autowired
-    private RecuDao recuDao;
-    @Autowired
-    private PaiementService paiementService;
 
     public Recu findByCode(String code) {
         return recuDao.findByCode(code);
@@ -38,6 +34,10 @@ public class RecuService {
             return -1;
         }
     }
+    @Autowired
+    private RecuDao recuDao;
+    @Autowired
+    private PaiementService paiementService;
 }
 
 

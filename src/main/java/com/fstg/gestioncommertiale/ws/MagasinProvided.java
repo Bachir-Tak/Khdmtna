@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/magasin")
+@RequestMapping("/GestionCommertiale/Magasin")
 public class MagasinProvided {
     @Autowired
     private MagasinService magasinService;

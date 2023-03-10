@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/demandeProduit")
+@RequestMapping("/GestionCommertiale/DemandeProduit")
 public class DemandeProduitProvided {
     @Autowired
     private DemandeProduitService demandeProduitService;
@@ -28,5 +28,8 @@ public class DemandeProduitProvided {
     public List<DemandeProduit> findAll() {
         return demandeProduitService.findAll();
     }
-
+    @DeleteMapping("/")
+    public void save( @RequestBody DemandeProduit demandeProduit) {
+        demandeProduitService.save(demandeProduit);
+    }
 }

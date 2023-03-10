@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/receptionProduit")
+@RequestMapping("/GestionCommertiale/receptionProduit")
 public class ReceptionProduitProvided {
     @Autowired
     private ReceptionProduitService receptionProduitService;
@@ -28,5 +28,8 @@ public class ReceptionProduitProvided {
     public List<ReceptionProduit> findAll() {
         return receptionProduitService.findAll();
     }
-
+    @PostMapping("/")
+    public void save( @RequestBody  ReceptionProduit receptionProduit) {
+        receptionProduitService.save(receptionProduit);
+    }
 }

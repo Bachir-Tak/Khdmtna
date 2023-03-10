@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/GestionCommertiale/RecuRemboursement")
 public class RecuRemboursementProvided {
-    @Autowired
-    private RecuRemboursementService recuRemboursementService;
-@GetMapping("/code/{code}")
+    @GetMapping("/code/{code}")
     public RecuRemboursement findByCode(@PathVariable String code) {
         return recuRemboursementService.findByCode(code);
     }
@@ -18,8 +16,10 @@ public class RecuRemboursementProvided {
     public int deleteByCode(@PathVariable String code) {
         return recuRemboursementService.deleteByCode(code);
     }
-@PostMapping("/")
-    public int save(RecuRemboursement recuRemboursement) {
+    @PostMapping("/")
+    public int save( @RequestBody  RecuRemboursement recuRemboursement) {
         return recuRemboursementService.save(recuRemboursement);
     }
+    @Autowired
+    private RecuRemboursementService recuRemboursementService;
 }

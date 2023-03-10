@@ -29,8 +29,8 @@ public class LivraisonCommandeProvided {
         return livraisonCommandeService.deleteByCommandeRef(ref);
     }
     @PostMapping("/")
-    public int save(@RequestBody String livraisonRef, String commandeRef) {
-        return livraisonCommandeService.save(livraisonRef, commandeRef);
+    public int save( @RequestBody LivraisonCommande livraisonCommande) {
+        return livraisonCommandeService.save(livraisonCommande);
     }
 
     @Autowired

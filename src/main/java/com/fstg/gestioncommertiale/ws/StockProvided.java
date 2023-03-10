@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/stock")
+@RequestMapping("/GestionCommertiale/Stock")
 public class StockProvided {
     @Autowired
     private StockService stockService;
@@ -38,5 +38,8 @@ public class StockProvided {
     public List<Stock> findAll() {
         return stockService.findAll();
     }
-
+    @PostMapping("/")
+    public void save( @RequestBody Stock stock) {
+        stockService.save(stock);
+    }
 }

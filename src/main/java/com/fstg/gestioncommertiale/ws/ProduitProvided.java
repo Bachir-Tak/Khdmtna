@@ -23,8 +23,8 @@ public class ProduitProvided {
     public int save(@RequestBody Produit produit) {
         return produitService.save(produit);
     }
-@PostMapping("/update")
-    public int update( @RequestBody Produit produit,@RequestBody Long prixVente) {
+    @PostMapping("/update")
+    public int update( @RequestBody Produit produit,@PathVariable Long prixVente) {
         return produitService.update(produit, prixVente);
     }
 

@@ -10,20 +10,20 @@ import javax.transaction.Transactional;
 @RestController
 @RequestMapping("/GestionCommertiale/Remboursement")
 public class RemboursementProvided {
-    @Autowired
-    private RemboursementService remboursementService;
-@GetMapping("/code/{code}")
+
+    @GetMapping("/code/{code}")
     public Remboursement findByCode(@PathVariable String code) {
         return remboursementService.findByCode(code);
     }
-@DeleteMapping("/code/{code}")
+    @DeleteMapping("/code/{code}")
     public int deleteByCode(@PathVariable String code) {
         return remboursementService.deleteByCode(code);
     }
-@PostMapping("/")
+     @PostMapping("/")
     public int save(@RequestBody Remboursement remboursement) {
         return remboursementService.save(remboursement);
     }
-
+    @Autowired
+    private RemboursementService remboursementService;
 
 }
