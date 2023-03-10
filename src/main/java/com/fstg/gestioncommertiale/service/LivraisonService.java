@@ -17,7 +17,7 @@ public class LivraisonService {
 
     @Transactional
 
-    public void delete(String ref){
+    public void deleteByRef(String ref){
         Livraison livraison = livraisonDao.findByRef(ref);
         RecuRemboursement recuRemboursement = recuRemboursementService.findByCode(livraison.getAchat().getCode());
         if (recuRemboursement !=null && recuRemboursement.getRemboursement() !=null){
