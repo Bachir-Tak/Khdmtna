@@ -11,10 +11,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/GestionCommertiale/LivraisonCommande")
 public class LivraisonCommandeProvided {
-    public List<LivraisonCommande> findByLivraisonRef(String ref) {
-        return livraisonCommandeService.findByLivraisonRef(ref);
+    @GetMapping("/livraisonRef/{livraisonRef}")
+    public List<LivraisonCommande> findByLivraisonRef( @PathVariable String  livraisonRef) {
+        return livraisonCommandeService.findByLivraisonRef(livraisonRef);
     }
-    @DeleteMapping("/livraisonRef/{ livraisonRef}")
+    @DeleteMapping("/livraisonRef/{livraisonRef}")
     @Transactional
     public int deleteByLivraisonRef(@PathVariable String livraisonRef) {
         return livraisonCommandeService.deleteByLivraisonRef(livraisonRef);

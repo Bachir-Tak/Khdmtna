@@ -15,7 +15,7 @@ public class Commande {
     @OneToMany(mappedBy = "commande")
     private List<CommandeProduit> commandeProduits;
      @ManyToOne
-    private RecapitulatifAchat recapitulatifAchat;
+     private RecapitulatifAchat recapitulatifAchat;
 
 
     public Long getId() {
@@ -51,5 +51,13 @@ public class Commande {
 
     public void setDate(LocalDateTime date) {
         this.date = date;
+    }
+
+    public RecapitulatifAchat getRecapitulatifAchat() {
+        return recapitulatifAchat;
+    }
+
+    public void setRecapitulatifAchat(RecapitulatifAchat recapitulatifAchat) {
+        this.recapitulatifAchat = recapitulatifAchat;
     }
 }

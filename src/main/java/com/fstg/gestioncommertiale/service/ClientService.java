@@ -28,13 +28,11 @@ public class ClientService {
     }
 
     public int save(Client client) {
+
         Client clt = findByCin(client.getCin());
         if (clt != null) {
             return -1;
         }
-        if(client.getCompteClient() != null){
-                return -2;
-            }
         clientDao.save(client);
         return 1;
         }

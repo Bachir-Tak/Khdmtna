@@ -1,6 +1,9 @@
 package com.fstg.gestioncommertiale.bean;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Client {
@@ -12,10 +15,12 @@ public class Client {
     private String prenom;
 
     private String cin;
-    @OneToOne
-    private Compte compte;
+
     @ManyToOne
     private Ville ville;
+    @OneToMany
+    private List<Compte> comptes;
+
 
     public Long getId() {
         return id;
@@ -57,11 +62,11 @@ public class Client {
         this.ville = ville;
     }
 
-    public Compte getCompteClient() {
-        return compte;
+    public List<Compte> getComptes() {
+        return comptes;
     }
 
-    public void setCompteClient(Compte compte) {
-        this.compte = compte;
+    public void setComptes(List<Compte> comptes) {
+        this.comptes = comptes;
     }
 }

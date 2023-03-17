@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
+
 @Service
 public class CommandeService {
 
@@ -19,6 +21,9 @@ public class CommandeService {
     }
 
     public int save(Commande commande) {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        commande.setDate(localDateTime);
+
         if(findByRef(commande.getRef()) != null){
             return -1;
         }

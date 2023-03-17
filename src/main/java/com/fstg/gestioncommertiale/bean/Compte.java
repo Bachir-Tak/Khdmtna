@@ -10,8 +10,7 @@ public class Compte {
     private String email;
     private String motDePasse;
 
-    private boolean admin;
-    @OneToOne
+    @ManyToOne
     private Client client;
 
     public Long getId() {
@@ -46,11 +45,5 @@ public class Compte {
         this.client = client;
     }
 
-    public boolean isAdmin() {
-        return admin;
-    }
 
-    public void setAdmin(boolean admin) {
-        this.admin = admin;
-    }
 }
