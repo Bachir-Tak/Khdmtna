@@ -5,7 +5,7 @@ import com.fstg.gestioncommertiale.service.DemandeProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @RestController
@@ -29,6 +29,7 @@ public class DemandeProduitProvided {
         return demandeProduitService.findAll();
     }
     @DeleteMapping("/")
+    @Transactional
     public void save( @RequestBody DemandeProduit demandeProduit) {
         demandeProduitService.save(demandeProduit);
     }

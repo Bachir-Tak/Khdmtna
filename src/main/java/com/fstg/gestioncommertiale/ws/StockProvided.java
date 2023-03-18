@@ -5,7 +5,7 @@ import com.fstg.gestioncommertiale.service.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @RestController
@@ -20,6 +20,7 @@ public class StockProvided {
     }
 
     @DeleteMapping("/code/{code}")
+    @Transactional
     public int deleteByMagasinCode(@PathVariable String code) {
         return stockService.deleteByMagasinCode(code);
     }
@@ -30,6 +31,7 @@ public class StockProvided {
     }
 
     @DeleteMapping("/ref/{ref}")
+    @Transactional
     public int deleteByProduitRef(@PathVariable String ref) {
         return stockService.deleteByProduitRef(ref);
     }

@@ -3,6 +3,7 @@ package com.fstg.gestioncommertiale.ws;
 import com.fstg.gestioncommertiale.bean.ModeDePaiement;
 import com.fstg.gestioncommertiale.service.ModeDePaiementService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class ModeDePaiementProvided {
     }
 
     @DeleteMapping("/code/{code}")
+    @Transactional
     public int deleteByCode(@PathVariable String code) {
         return modeDePaiementService.deleteByCode(code);
     }

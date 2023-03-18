@@ -6,7 +6,7 @@ import com.fstg.gestioncommertiale.service.ReceptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @RestController
@@ -21,6 +21,7 @@ public class ReceptionProvided {
     }
 
     @DeleteMapping("/ref/{ref}")
+    @Transactional
     public int deleteByRef(@PathVariable String ref) {
         return receptionService.deleteByRef(ref);
     }

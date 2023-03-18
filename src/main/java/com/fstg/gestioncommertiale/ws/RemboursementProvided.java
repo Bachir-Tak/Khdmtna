@@ -5,7 +5,7 @@ import com.fstg.gestioncommertiale.service.RemboursementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 @RestController
 @RequestMapping("/GestionCommertiale/Remboursement")
@@ -16,6 +16,7 @@ public class RemboursementProvided {
         return remboursementService.findByCode(code);
     }
     @DeleteMapping("/code/{code}")
+    @Transactional
     public int deleteByCode(@PathVariable String code) {
         return remboursementService.deleteByCode(code);
     }

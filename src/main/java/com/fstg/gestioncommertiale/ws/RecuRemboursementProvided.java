@@ -3,6 +3,7 @@ package com.fstg.gestioncommertiale.ws;
 import com.fstg.gestioncommertiale.bean.RecuRemboursement;
 import com.fstg.gestioncommertiale.service.RecuRemboursementService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,6 +14,7 @@ public class RecuRemboursementProvided {
         return recuRemboursementService.findByCode(code);
     }
     @DeleteMapping("/code/{code}")
+    @Transactional
     public int deleteByCode(@PathVariable String code) {
         return recuRemboursementService.deleteByCode(code);
     }
