@@ -18,6 +18,8 @@ public class Produit {
     private Long prixVente;
     @ManyToOne
     private CategorieProduit categorieProduit;
+
+    private String imgUrl;
     public String getRef() {
         return ref;
     }
@@ -49,4 +51,19 @@ public class Produit {
         this.prixVente = prixVente;
     }
 
+    public CategorieProduit getCategorieProduit() {
+        return categorieProduit;
+    }
+
+    public void setCategorieProduit(CategorieProduit categorieProduit) {
+        this.categorieProduit = categorieProduit;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 }
