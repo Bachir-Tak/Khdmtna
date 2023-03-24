@@ -1,6 +1,5 @@
 package com.fstg.gestioncommertiale.ws;
 
-import com.fstg.gestioncommertiale.bean.Achat;
 import com.fstg.gestioncommertiale.bean.AchatCommande;
 import com.fstg.gestioncommertiale.service.AchatCommandeService;
 import org.springframework.beans.factory.annotation.Autowired;

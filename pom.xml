@@ -8,11 +8,11 @@
         <version>2.7.8</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>usa.harvard</groupId>
-    <artifactId>tp1</artifactId>
+    <groupId>com.fstg</groupId>
+    <artifactId>gestionCommerciale</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>tp1</name>
-    <description>tp1</description>
+    <name>gestionCommerciale</name>
+    <description>gestionCommerciale</description>
     <properties>
         <java.version>11</java.version>
     </properties>
