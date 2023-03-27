@@ -27,6 +27,7 @@ public class FournisseurProduitService {
     }
     @Transactional
     public int deleteByProduitRef(String ref) {
+        produitService.deleteByRef(ref);
         return fournisseurProduitDao.deleteByProduitRef(ref);
     }
 
@@ -35,6 +36,7 @@ public class FournisseurProduitService {
     }
     @Transactional
     public int deleteByFournisseurCode(String code) {
+        fournisseurService.deleteByCode(code);
         return fournisseurProduitDao.deleteByFournisseurCode(code);
     }
 
@@ -46,6 +48,9 @@ public class FournisseurProduitService {
     private FourbisseurProduitDao fournisseurProduitDao;
     @Autowired
     private  FournisseurService fournisseurService;
+
+    @Autowired
+    private ProduitService produitService;
 
 
 

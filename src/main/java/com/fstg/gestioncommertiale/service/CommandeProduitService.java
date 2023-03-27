@@ -17,6 +17,7 @@ public class CommandeProduitService {
     }
     @Transactional
     public int deleteByProduitRef(String ref) {
+        produitService.deleteByRef(ref);
         return commandeProduitDao.deleteByProduitRef(ref);
     }
 
@@ -25,6 +26,7 @@ public class CommandeProduitService {
     }
     @Transactional
     public int deleteByCommandeRef(String ref) {
+        commandeService.deleteByRef(ref);
         return commandeProduitDao.deleteByCommandeRef(ref);
     }
 
@@ -43,4 +45,7 @@ public class CommandeProduitService {
     private CommandeProduitDao commandeProduitDao;
     @Autowired
     private ProduitService produitService;
+
+    @Autowired
+    private CommandeService commandeService;
 }

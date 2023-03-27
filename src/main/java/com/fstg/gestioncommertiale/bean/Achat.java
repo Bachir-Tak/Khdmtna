@@ -13,6 +13,15 @@ public class Achat {
     private List<AchatCommande> achatCommandes;
     @ManyToOne
     private Client client;
+
+    public HistoriqueAchat getHistoriqueAchat() {
+        return historiqueAchat;
+    }
+
+    public void setHistoriqueAchat(HistoriqueAchat historiqueAchat) {
+        this.historiqueAchat = historiqueAchat;
+    }
+
     @ManyToOne
     private HistoriqueAchat historiqueAchat;
 

@@ -18,14 +18,19 @@ public class DemandeProduitService {
     public void save (DemandeProduit demandeProduit){
         demandeProduitDao.save(demandeProduit);
     }
-    @Autowired
-    private DemandeProduitDao demandeProduitDao;
+
 
     public List<DemandeProduit> findByDemandeCode(String code) {
         return demandeProduitDao.findByDemandeCode(code);
     }
     @Transactional
     public int deleteByDemandeCode(String code) {
+        demandeService.deleteByCode(code);
         return demandeProduitDao.deleteByDemandeCode(code);
     }
+    @Autowired
+    private DemandeProduitDao demandeProduitDao;
+
+    @Autowired
+    private DemandeService demandeService;
 }

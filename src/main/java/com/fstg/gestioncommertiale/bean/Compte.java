@@ -9,7 +9,6 @@ public class Compte {
     private Long id;
     private String email;
     private String motDePasse;
-
     @ManyToOne
     private Client client;
 

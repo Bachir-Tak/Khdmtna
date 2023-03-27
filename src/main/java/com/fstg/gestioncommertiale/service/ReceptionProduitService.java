@@ -15,6 +15,7 @@ public class ReceptionProduitService {
     }
     @Transactional
     public int deleteByReceptionRef(String ref) {
+        produitService.deleteByRef(ref);
         return receptionProduitDao.deleteByReceptionRef(ref);
     }
 
@@ -27,4 +28,6 @@ public class ReceptionProduitService {
     }
     @Autowired
     private ReceptionProduitDao receptionProduitDao;
+    @Autowired
+    private ProduitService produitService;
 }

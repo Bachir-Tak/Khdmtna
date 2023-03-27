@@ -28,6 +28,7 @@ public class LivraisonCommandeService {
     }
     @Transactional
     public int deleteByLivraisonRef(String ref) {
+        livraisonService.deleteByRef(ref);
         return livraisonCommandeDao.deleteByLivraisonRef(ref);
     }
 
@@ -36,6 +37,7 @@ public class LivraisonCommandeService {
     }
     @Transactional
     public int deleteByCommandeRef(String ref) {
+        livraisonService.deleteByRef(ref);
         return livraisonCommandeDao.deleteByCommandeRef(ref);
     }
     public int save( LivraisonCommande livraisonCommande) {

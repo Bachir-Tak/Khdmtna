@@ -17,6 +17,9 @@ public class VenteProduitService {
     @Autowired
     private ProduitService produitService;
 
+    @Autowired
+    private VenteService venteService;
+
 
 
     public int save(VenteProduit venteProduit) {
@@ -34,6 +37,7 @@ public class VenteProduitService {
 
     @Transactional
     public int deleteByProduitRef(String ref) {
+        produitService.deleteByRef(ref);
         return venteProduitDao.deleteByProduitRef(ref);
     }
 
@@ -45,6 +49,7 @@ public class VenteProduitService {
 
     @Transactional
     public int deleteByVenteRef(String ref) {
+        venteService.deleteByRef(ref);
         return venteProduitDao.deleteByVenteRef(ref);
     }
 
