@@ -10,6 +10,8 @@ public class Fournisseur {
     private Long id;
     private String code;
     private String nom;
+
+    private String adresse;
     @ManyToOne
     private Ville ville;
 
@@ -54,5 +56,13 @@ public class Fournisseur {
 
     public void setFournisseurProduits(List<FournisseurProduit> fournisseurProduits) {
         this.fournisseurProduits = fournisseurProduits;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
     }
 }
