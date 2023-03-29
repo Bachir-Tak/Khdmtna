@@ -16,10 +16,14 @@ public class Client {
 
     private String cin;
 
+    private  String rib;
+
+    private String adresse;
+
     @ManyToOne
     private Ville ville;
-    @OneToMany
-    private List<Compte> comptes;
+    @OneToOne
+    private Compte compte;
 
 
     public Long getId() {
@@ -62,11 +66,28 @@ public class Client {
         this.ville = ville;
     }
 
-    public List<Compte> getComptes() {
-        return comptes;
+
+    public Compte getCompte() {
+        return compte;
     }
 
-    public void setComptes(List<Compte> comptes) {
-        this.comptes = comptes;
+    public void setCompte(Compte compte) {
+        this.compte = compte;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public String getRib() {
+        return rib;
+    }
+
+    public void setRib(String rib) {
+        this.rib = rib;
     }
 }
