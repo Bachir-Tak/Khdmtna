@@ -1,6 +1,7 @@
 package com.fstg.gestioncommertiale.bean;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -10,6 +11,7 @@ public class HistoriqueAchat {
     private Long id;
 
     private String ref;
+    private LocalDateTime date;
     @OneToMany(mappedBy = "historiqueAchat")
     private List<Achat> achats;
 
@@ -37,5 +39,13 @@ public class HistoriqueAchat {
 
     public void setRef(String ref) {
         this.ref = ref;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
     }
 }

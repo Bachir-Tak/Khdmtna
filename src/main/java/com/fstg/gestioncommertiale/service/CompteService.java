@@ -25,8 +25,8 @@ public class CompteService {
         } else if (compte.getMotDePasse() == null) {
             return -2;
         } else {
-            Client client = compte.getClient();
-            clientService.save(client);
+         //   Client client = compte.getClient();
+          //  clientService.save(client);
             compteDao.save(compte);
             return 1;
         }
