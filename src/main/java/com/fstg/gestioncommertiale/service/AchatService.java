@@ -30,11 +30,11 @@ public class AchatService {
                 return -2;
             }else
             {
-            Client client = clientService.findByCin(achat.getClient().getCin());
+            Client client = clientService.findByCin(achat.getCompte().getClient().getCin());
             if (client!=null){
-                    achat.setClient(clientService.findByCin(achat.getClient().getCin()));
+                    achat.getCompte().setClient(clientService.findByCin(achat.getCompte().getClient().getCin()));
                 }
-                clientService.save(achat.getClient());
+                clientService.save(achat.getCompte().getClient());
                 achatDao.save(achat);
                 for (AchatCommande achatCommande : achat.getAchatCommandes()) {
                     achatCommande.setAchat(achat);

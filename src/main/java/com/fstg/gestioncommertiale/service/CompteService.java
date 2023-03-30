@@ -20,13 +20,19 @@ public class CompteService {
     }
 
     public int save(Compte compte) {
+
+        Client client = clientService.findByCin(compte.getClient().getCin());
+        if (client == null ) {
+            client=compte.getClient();
+            clientService.save(compte.getClient());}
+        compte.setClient(client);
         if (compte.getEmail() == null) {
             return -1;
         } else if (compte.getMotDePasse() == null) {
             return -2;
         } else {
-         //   Client client = compte.getClient();
-          //  clientService.save(client);
+
+
             compteDao.save(compte);
             return 1;
         }

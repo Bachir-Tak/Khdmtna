@@ -1,7 +1,5 @@
 package com.fstg.gestioncommertiale.bean;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -22,8 +20,7 @@ public class Client {
 
     @ManyToOne
     private Ville ville;
-    @OneToOne
-    private Compte compte;
+
 
 
     public Long getId() {
@@ -66,15 +63,6 @@ public class Client {
         this.ville = ville;
     }
 
-
-    public Compte getCompte() {
-        return compte;
-    }
-
-    public void setCompte(Compte compte) {
-        this.compte = compte;
-    }
-
     public String getAdresse() {
         return adresse;
     }
@@ -90,4 +78,6 @@ public class Client {
     public void setRib(String rib) {
         this.rib = rib;
     }
+
+
 }

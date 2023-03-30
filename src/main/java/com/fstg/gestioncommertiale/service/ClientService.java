@@ -28,7 +28,6 @@ public class ClientService {
     }
 
     public int save(Client client) {
-
         Client clt = findByCin(client.getCin());
         if (clt != null) {
             return -1;
@@ -40,4 +39,7 @@ public class ClientService {
 
     @Autowired
     private ClientDao clientDao;
+
+
+
 }

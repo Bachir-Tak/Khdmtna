@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/GestionCommertiale/Ville")
 public class VilleProvided {
@@ -18,6 +20,10 @@ public class VilleProvided {
     @Transactional
     public int deleteByNom(@PathVariable String nom) {
         return villeService.deleteByNom(nom);
+    }
+    @GetMapping("/")
+    public List<Ville> findAll() {
+        return villeService.findAll();
     }
 
     @PostMapping("/")
