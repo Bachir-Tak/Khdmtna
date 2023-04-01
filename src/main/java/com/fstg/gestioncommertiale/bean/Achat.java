@@ -12,7 +12,7 @@ public class Achat {
     @OneToMany(mappedBy = "achat")
     private List<AchatCommande> achatCommandes;
     @ManyToOne
-    private Compte compte;
+    private Client client;
 
 
 
@@ -35,12 +35,6 @@ public class Achat {
         this.id = id;
     }
 
-
-
-
-
-
-
     public List<AchatCommande> getAchatCommandes() {
         return achatCommandes;
     }
@@ -57,11 +51,12 @@ public class Achat {
         this.code = code;
     }
 
-    public Compte getCompte() {
-        return compte;
+
+    public Client getClient() {
+        return client;
     }
 
-    public void setCompte(Compte compte) {
-        this.compte = compte;
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

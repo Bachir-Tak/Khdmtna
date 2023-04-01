@@ -9,7 +9,7 @@ public class Compte {
     private Long id;
     private String email;
     private String motDePasse;
-    @ManyToOne
+    @OneToOne
     private Client client;
 
     public Long getId() {

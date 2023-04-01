@@ -20,6 +20,8 @@ public class Client {
 
     @ManyToOne
     private Ville ville;
+     @OneToOne
+    private Compte compte;
 
 
 
@@ -80,4 +82,11 @@ public class Client {
     }
 
 
+    public Compte getCompte() {
+        return compte;
+    }
+
+    public void setCompte(Compte compte) {
+        this.compte = compte;
+    }
 }
