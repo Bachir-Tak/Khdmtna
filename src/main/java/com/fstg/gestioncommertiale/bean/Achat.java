@@ -14,7 +14,8 @@ public class Achat {
     @ManyToOne
     private Client client;
 
-
+    @ManyToOne
+    private HistoriqueAchat historiqueAchat;
 
     public HistoriqueAchat getHistoriqueAchat() {
         return historiqueAchat;
@@ -24,8 +25,7 @@ public class Achat {
         this.historiqueAchat = historiqueAchat;
     }
 
-    @ManyToOne
-    private HistoriqueAchat historiqueAchat;
+
 
     public Long getId() {
         return id;

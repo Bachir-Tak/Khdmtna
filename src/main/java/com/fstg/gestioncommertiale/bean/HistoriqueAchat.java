@@ -12,6 +12,8 @@ public class HistoriqueAchat {
 
     private String ref;
     private LocalDateTime date;
+
+    private Long total;
     @OneToMany(mappedBy = "historiqueAchat")
     private List<Achat> achats;
 
@@ -47,5 +49,13 @@ public class HistoriqueAchat {
 
     public void setDate(LocalDateTime date) {
         this.date = date;
+    }
+
+    public Long getTotal() {
+        return total;
+    }
+
+    public void setTotal(Long total) {
+        this.total = total;
     }
 }
