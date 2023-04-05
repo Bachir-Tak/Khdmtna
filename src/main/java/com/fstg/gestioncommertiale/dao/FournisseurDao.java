@@ -11,5 +11,5 @@ public interface FournisseurDao extends JpaRepository<Fournisseur, Long> {
     Fournisseur findByCode(String code);
 
     int deleteByCode(String code);
-    List<Fournisseur> findByVilleNom(String nom);
+
 }

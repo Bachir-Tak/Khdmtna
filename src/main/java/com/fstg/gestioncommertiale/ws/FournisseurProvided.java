@@ -25,11 +25,6 @@ public class FournisseurProvided {
         return fournisseurService.save(fournisseur);
     }
 
-    @GetMapping("/nom/{nom}")
-    public List<Fournisseur> findByVilleNom(@PathVariable String nom) {
-        return fournisseurService.findByVilleNom(nom);
-    }
-
     @DeleteMapping("/code/{code}")
     @Transactional
     public int deleteByCode(@PathVariable String code) {

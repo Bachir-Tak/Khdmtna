@@ -29,6 +29,7 @@ public class LivraisonService {
         Paiement paiement = paiementService.findByCode(livraison.getAchat().getCode());
         if (paiement != null && paiement.isPaiementEffectue()) {
             livraisonDao.save(livraison);
+            livraison.setVille(livraison.getVille());
             return 1;
         } else {
             return -1;
@@ -41,6 +42,7 @@ public class LivraisonService {
 
     @Autowired
     private RecuRemboursementService recuRemboursementService;
+
 
 }
 

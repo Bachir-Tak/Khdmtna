@@ -13,6 +13,8 @@ public class Livraison {
 
     private String ref;
     private LocalDateTime date;
+
+    private String ville;
     @OneToOne
     private Achat achat;
     @OneToMany(mappedBy = "livraison")
@@ -59,5 +61,14 @@ public class Livraison {
 
     public void setDate(LocalDateTime date) {
         this.date = date;
+    }
+
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
     }
 }

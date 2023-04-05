@@ -23,9 +23,6 @@ public class ClientService {
         return clientDao.findAll();
     }
 
-    public List<Client> findByVilleNom(String nom) {
-        return clientDao.findByVilleNom(nom);
-    }
 
     public int save(Client client) {
         Client clt = findByCin(client.getCin());

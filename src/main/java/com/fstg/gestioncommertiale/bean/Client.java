@@ -18,8 +18,8 @@ public class Client {
 
     private String adresse;
 
-    @ManyToOne
-    private Ville ville;
+
+    private String ville;
      @OneToOne
     private Compte compte;
 
@@ -57,13 +57,7 @@ public class Client {
         this.prenom = prenom;
     }
 
-    public Ville getVille() {
-        return ville;
-    }
 
-    public void setVille(Ville ville) {
-        this.ville = ville;
-    }
 
     public String getAdresse() {
         return adresse;
@@ -88,5 +82,13 @@ public class Client {
 
     public void setCompte(Compte compte) {
         this.compte = compte;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
     }
 }

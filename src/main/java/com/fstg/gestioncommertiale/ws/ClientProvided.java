@@ -27,10 +27,6 @@ public class ClientProvided {
         return clientService.findAll();
     }
 
-    @GetMapping("/nom/{nom}")
-    public List<Client> findByVilleNom(@PathVariable String nom) {
-        return clientService.findByVilleNom(nom);
-    }
 
     @PostMapping("/")
     public int save(@RequestBody Client client) {

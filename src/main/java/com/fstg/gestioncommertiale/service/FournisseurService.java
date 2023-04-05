@@ -24,9 +24,7 @@ public class FournisseurService {
         }
     }
 
-    public List<Fournisseur> findByVilleNom(String nom) {
-        return fournisseurDao.findByVilleNom(nom);
-    }
+
 
     @Transactional
     public int deleteByCode(String code) {
@@ -39,4 +37,5 @@ public class FournisseurService {
 
     @Autowired
     private FournisseurDao fournisseurDao;
+
 }

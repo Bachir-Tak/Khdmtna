@@ -12,8 +12,8 @@ public class Fournisseur {
     private String nom;
 
     private String adresse;
-    @ManyToOne
-    private Ville ville;
+
+    private String ville;
 
     @OneToMany (mappedBy = "fournisseur")
     private List<FournisseurProduit> fournisseurProduits;
@@ -42,13 +42,7 @@ public class Fournisseur {
         this.nom = nom;
     }
 
-    public Ville getVille() {
-        return ville;
-    }
 
-    public void setVille(Ville ville) {
-        this.ville = ville;
-    }
 
     public List<FournisseurProduit> getFournisseurProduits() {
         return fournisseurProduits;
@@ -64,5 +58,13 @@ public class Fournisseur {
 
     public void setAdresse(String adresse) {
         this.adresse = adresse;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
     }
 }

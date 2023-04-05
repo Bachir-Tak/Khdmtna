@@ -26,7 +26,7 @@ public class AchatService {
             if (findByCode(achat.getCode()) != null) {
             return -1;
             }
-            else if (achat.getAchatCommandes().isEmpty()) {
+            if (achat.getAchatCommandes().isEmpty()) {
                 return -2;
             }else
             {
