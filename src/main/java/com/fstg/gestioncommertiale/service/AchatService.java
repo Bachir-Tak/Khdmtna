@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 @Service
 public class AchatService {
@@ -26,10 +28,7 @@ public class AchatService {
             if (findByCode(achat.getCode()) != null) {
             return -1;
             }
-            if (achat.getAchatCommandes().isEmpty()) {
-                return -2;
-            }else
-            {
+
             Client client = clientService.findByCin(achat.getClient().getCin());
             if (client!=null){
                     achat.setClient(clientService.findByCin(achat.getClient().getCin()));
@@ -42,10 +41,13 @@ public class AchatService {
 
                 }
                 return 1;
-            }}
+            }
 
+    public List<Achat> findAll() {
+        return achatDao.findAll();
+    }
 
-           @Autowired
+    @Autowired
            private AchatDao achatDao;
             @Autowired
             private AchatCommandeService achatCommandeService;

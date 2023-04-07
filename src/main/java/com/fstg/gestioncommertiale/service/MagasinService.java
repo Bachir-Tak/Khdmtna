@@ -1,6 +1,8 @@
 package com.fstg.gestioncommertiale.service;
 
 import com.fstg.gestioncommertiale.bean.Magasin;
+import com.fstg.gestioncommertiale.bean.ReceptionProduit;
+import com.fstg.gestioncommertiale.bean.Stock;
 import com.fstg.gestioncommertiale.dao.MagasinDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,11 +29,18 @@ public class MagasinService {
         if (findByCode(magasin.getCode()) != null) {
             return -1;
         }
-        magasinDao.save(magasin);
+            magasinDao.save(magasin);
+        for (Stock stock : magasin.getStocks()) {
+            stock.setMagasin(magasin);
+            stockService.save(stock);
+        }
         return 1;
     }
 
 
     @Autowired
     private MagasinDao magasinDao;
+
+        @Autowired
+        private StockService stockService;
 }

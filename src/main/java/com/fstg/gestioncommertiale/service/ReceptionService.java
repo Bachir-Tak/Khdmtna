@@ -49,6 +49,7 @@ public class ReceptionService {
         }
         receptionDao.save(reception);
         for (ReceptionProduit receptionProduit : reception.getReceptionProduit()){
+            receptionProduit.setReception(reception);
             receptionProduitService.save(receptionProduit);
         }
         return 1;
