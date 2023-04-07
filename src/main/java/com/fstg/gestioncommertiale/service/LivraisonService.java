@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class LivraisonService {
 
@@ -19,11 +21,15 @@ public class LivraisonService {
 
     public void deleteByRef(String ref){
         Livraison livraison = livraisonDao.findByRef(ref);
+        if(livraison != null){
         RecuRemboursement recuRemboursement = recuRemboursementService.findByCode(livraison.getAchat().getCode());
         if (recuRemboursement !=null && recuRemboursement.getRemboursement() !=null){
             livraisonDao.deleteByRef(ref);
         }
+        }
     }
+
+    public List<Livraison> findAll() {return livraisonDao.findAll();}
 
     public int save(Livraison livraison) {
         Paiement paiement = paiementService.findByCode(livraison.getAchat().getCode());

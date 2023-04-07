@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/GestionCommertiale/Livraison")
 public class LivraisonProvided {
@@ -27,5 +29,6 @@ public class LivraisonProvided {
 
     @Autowired
     private LivraisonService livraisonService;
-
+    @GetMapping("/")
+    public List<Livraison> findAll() {return livraisonService.findAll();}
 }
