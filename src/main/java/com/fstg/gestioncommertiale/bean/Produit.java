@@ -13,6 +13,8 @@ public class Produit {
     private String ref;
 
     private Long prixVente;
+
+    private String description;
     @ManyToOne
     private CategorieProduit categorieProduit;
 
@@ -62,5 +64,13 @@ public class Produit {
 
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
