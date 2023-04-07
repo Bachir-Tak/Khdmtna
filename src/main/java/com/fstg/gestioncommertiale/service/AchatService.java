@@ -23,27 +23,22 @@ public class AchatService {
 
 
     public int save(Achat achat) {
-            if (findByCode(achat.getCode()) != null) {
+        if (findByCode(achat.getCode()) != null) {
             return -1;
-            }
-            if (achat.getAchatCommandes().isEmpty()) {
-                return -2;
-            }else
-            {
-            Client client = clientService.findByCin(achat.getClient().getCin());
-            if (client!=null){
-                    achat.setClient(clientService.findByCin(achat.getClient().getCin()));
-                }
-                clientService.save(achat.getClient());
-                achatDao.save(achat);
-                for (AchatCommande achatCommande : achat.getAchatCommandes()) {
-                    achatCommande.setAchat(achat);
-                    achatCommandeService.save(achatCommande);
+        }
+        Client client = clientService.findByCin(achat.getClient().getCin());
+        if (client != null) {
+            achat.setClient(clientService.findByCin(achat.getClient().getCin()));
+        }
+        clientService.save(achat.getClient());
+        achatDao.save(achat);
+        // for (AchatCommande achatCommande : achat.getAchatCommandes()) {
+        // achatCommande.setAchat(achat);
+        // achatCommandeService.save(achatCommande);
 
-                }
-                return 1;
-            }}
 
+        return 1;
+    }
 
            @Autowired
            private AchatDao achatDao;
