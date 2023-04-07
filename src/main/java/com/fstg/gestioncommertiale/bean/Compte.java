@@ -12,6 +12,8 @@ public class Compte {
     @OneToOne
     private Client client;
 
+    private boolean admin;
+
     public Long getId() {
         return id;
     }
@@ -44,5 +46,11 @@ public class Compte {
         this.client = client;
     }
 
+    public boolean isAdmin() {
+        return admin;
+    }
 
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
 }

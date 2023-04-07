@@ -19,6 +19,7 @@ public class RecuRemboursementService {
         if (findByCode(recuRemboursement.getCode()) != null) {
             return -1;
         } else {
+            recuRemboursement.setCode(recuRemboursement.getRemboursement().getCode());
             recuRemboursementDao.save(recuRemboursement);
             return 1;
         }
