@@ -18,7 +18,7 @@ public class Produit {
     @ManyToOne
     private CategorieProduit categorieProduit;
 
-    private String imgUrl;
+
     public String getRef() {
         return ref;
     }
@@ -58,13 +58,7 @@ public class Produit {
         this.categorieProduit = categorieProduit;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
-    }
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
-    }
 
     public String getDescription() {
         return description;

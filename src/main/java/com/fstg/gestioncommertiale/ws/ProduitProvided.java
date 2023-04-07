@@ -28,7 +28,7 @@ public class ProduitProvided {
         return produitService.update(produit, prixVente);
     }
 
-    @PostMapping("/ref/{ref}")
+    @DeleteMapping("/ref/{ref}")
     @Transactional
     public int deleteByRef(@PathVariable String ref) {
         return produitService.deleteByRef(ref);
