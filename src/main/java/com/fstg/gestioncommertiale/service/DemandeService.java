@@ -37,6 +37,7 @@ public class DemandeService {
         }
         demandeDao.save(demande);
         for (DemandeProduit demandeProduit : demande.getDemandeProduits()){
+            demandeProduit.setDemande(demande);
             demandeProduitService.save(demandeProduit);
         }
         return 1;

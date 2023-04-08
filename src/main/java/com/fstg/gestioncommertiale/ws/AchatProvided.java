@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/GestionCommertiale/Achat")
 public class AchatProvided {
@@ -23,6 +25,10 @@ public class AchatProvided {
     @PostMapping("/")
     public int save(@RequestBody Achat achat) {
         return achatService.save(achat);
+    }
+@GetMapping("/")
+    public List<Achat> findAll() {
+        return achatService.findAll();
     }
 
     @Autowired
