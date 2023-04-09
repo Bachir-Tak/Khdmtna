@@ -25,6 +25,7 @@ public class MagasinService {
         return magasinDao.findAll();
     }
 
+
     public int save(Magasin magasin) {
         if (findByCode(magasin.getCode()) != null) {
             return -1;

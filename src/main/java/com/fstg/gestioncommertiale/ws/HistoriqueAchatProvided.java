@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/GestionCommertiale/HistoriqueAchat")
+@RequestMapping("/GestionCommerciale/HistoriqueAchat")
 public class HistoriqueAchatProvided {
     @GetMapping("/ref/{ref}")
     public HistoriqueAchat findByRef(@PathVariable String ref) {

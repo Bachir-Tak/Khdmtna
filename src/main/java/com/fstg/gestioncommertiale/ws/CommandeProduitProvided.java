@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/GestionCommertiale/CommandeProduit")
+@RequestMapping("/GestionCommerciale/CommandeProduit")
 public class CommandeProduitProvided {
     @GetMapping("ProduitRef/{ProduitRef}")
     public List<CommandeProduit> findByProduitRef(@PathVariable String ProduitRef) {

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/GestionCommertiale/Client")
+@RequestMapping("/GestionCommerciale/Client")
 public class ClientProvided {
     @GetMapping("/cin/{cin}")
     public Client findByCin(@PathVariable String cin) {

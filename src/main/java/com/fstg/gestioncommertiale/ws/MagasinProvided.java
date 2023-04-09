@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @RestController
-@RequestMapping("/GestionCommertiale/Magasin")
+@RequestMapping("/GestionCommerciale/Magasin")
 public class MagasinProvided {
     @Autowired
     private MagasinService magasinService;
@@ -27,7 +27,6 @@ public class MagasinProvided {
     }
 
     @GetMapping("/")
-
     public List<Magasin> findAll() {
         return magasinService.findAll();
     }

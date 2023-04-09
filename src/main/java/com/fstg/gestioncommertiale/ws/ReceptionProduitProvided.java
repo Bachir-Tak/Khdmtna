@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @RestController
-@RequestMapping("/GestionCommertiale/receptionProduit")
+@RequestMapping("/GestionCommerciale/receptionProduit")
 public class ReceptionProduitProvided {
     @Autowired
     private ReceptionProduitService receptionProduitService;

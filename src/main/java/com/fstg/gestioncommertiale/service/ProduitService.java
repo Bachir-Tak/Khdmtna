@@ -37,6 +37,7 @@ public class ProduitService {
     }
     @Transactional
     public int deleteByRef(String ref) {
+
         return produitDao.deleteByRef(ref);
     }
 

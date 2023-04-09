@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/GestionCommertiale/RecuRemboursement")
+@RequestMapping("/GestionCommerciale/RecuRemboursement")
 public class RecuRemboursementProvided {
     @GetMapping("/code/{code}")
     public RecuRemboursement findByCode(@PathVariable String code) {
