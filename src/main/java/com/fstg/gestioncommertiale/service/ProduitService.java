@@ -1,6 +1,7 @@
 package com.fstg.gestioncommertiale.service;
 
 import com.fstg.gestioncommertiale.bean.Produit;
+import com.fstg.gestioncommertiale.bean.ReceptionProduit;
 import com.fstg.gestioncommertiale.dao.ProduitDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,7 +38,8 @@ public class ProduitService {
     }
     @Transactional
     public int deleteByRef(String ref) {
-
+        receptionProduitService.deleteByProduitRef(ref);
+        stockService.deleteByProduitRef(ref);
         return produitDao.deleteByRef(ref);
     }
 
@@ -47,4 +49,10 @@ public class ProduitService {
 
     @Autowired
     private ProduitDao produitDao;
+
+    @Autowired
+    private StockService stockService;
+
+    @Autowired
+    private ReceptionProduitService receptionProduitService;
 }

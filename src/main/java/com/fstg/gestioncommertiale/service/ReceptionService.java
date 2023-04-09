@@ -61,6 +61,10 @@ public class ReceptionService {
         return 1;
     }
 
+    public int deleteByMagasinCode(String code) {
+        return receptionDao.deleteByMagasinCode(code);
+    }
+
     @Autowired
     private ReceptionDao receptionDao;
 

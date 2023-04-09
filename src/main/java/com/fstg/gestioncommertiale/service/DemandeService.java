@@ -25,14 +25,10 @@ public class DemandeService {
         if (findByCode(demande.getCode()) != null) {
             return -1;
         }
+
         for (DemandeProduit demandeProduit : demande.getDemandeProduits()) {
-            if (stockService.findByProduitRef(demandeProduit.getProduit().getRef()).isEmpty()) {
+            if (!stockService.findByProduitRef(demandeProduit.getProduit().getRef()).isEmpty()) {
                 return -2;
-            }
-            for (Stock stock : stockService.findByProduitRef(demandeProduit.getProduit().getRef())) {
-                if (stock.getQuantite().compareTo(demandeProduit.getQuantite()) > 0) {
-                    return -3;
-                }
             }
         }
         demandeDao.save(demande);
