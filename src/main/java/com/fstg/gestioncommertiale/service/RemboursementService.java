@@ -5,6 +5,8 @@ import com.fstg.gestioncommertiale.dao.RemboursementDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RemboursementService {
     public Remboursement findByCode(String code) {
@@ -25,6 +27,11 @@ public class RemboursementService {
             return 1;
         }
     }
+
+    public List<Remboursement> findAll() {
+        return remboursementDao.findAll();
+    }
+
     @Autowired
     private AvoirLivraisonService avoirLivraisonService;
     @Autowired
