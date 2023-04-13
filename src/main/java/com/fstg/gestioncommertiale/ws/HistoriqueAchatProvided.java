@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/GestionCommertiale/HistoriqueAchat")
 public class HistoriqueAchatProvided {
@@ -24,7 +26,13 @@ public class HistoriqueAchatProvided {
     public int save(@RequestBody HistoriqueAchat historiqueAchat) {
         return historiqueAchatService.save(historiqueAchat);
     }
+    @GetMapping("/")
+    public List<HistoriqueAchat> findAll() {
+        return historiqueAchatService.findAll();
+    }
 
     @Autowired
     private HistoriqueAchatService historiqueAchatService;
+
+
 }

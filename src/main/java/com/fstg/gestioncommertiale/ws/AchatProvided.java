@@ -26,7 +26,7 @@ public class AchatProvided {
     public int save(@RequestBody Achat achat) {
         return achatService.save(achat);
     }
-@GetMapping("/")
+    @GetMapping("/")
     public List<Achat> findAll() {
         return achatService.findAll();
     }

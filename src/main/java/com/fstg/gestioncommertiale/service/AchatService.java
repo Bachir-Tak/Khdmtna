@@ -3,6 +3,7 @@ package com.fstg.gestioncommertiale.service;
 import com.fstg.gestioncommertiale.bean.Achat;
 import com.fstg.gestioncommertiale.bean.AchatCommande;
 import com.fstg.gestioncommertiale.bean.Client;
+import com.fstg.gestioncommertiale.bean.HistoriqueAchat;
 import com.fstg.gestioncommertiale.dao.AchatDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,24 +34,29 @@ public class AchatService {
             if (client!=null){
                     achat.setClient(clientService.findByCin(achat.getClient().getCin()));
                 }
+        HistoriqueAchat historiqueAchat = historiqueAchatService.findByRef(achat.getHistoriqueAchat().getRef());
+            if(historiqueAchat != null){
+                return -2;
+            }
+                historiqueAchatService.save(achat.getHistoriqueAchat());
                 clientService.save(achat.getClient());
                 achatDao.save(achat);
-                for (AchatCommande achatCommande : achat.getAchatCommandes()) {
-                    achatCommande.setAchat(achat);
-                    achatCommandeService.save(achatCommande);
+                //for (AchatCommande achatCommande : achat.getAchatCommandes()) {
+                   // achatCommande.setAchat(achat);
+                   // achatCommandeService.save(achatCommande);}
 
-                }
                 return 1;
             }
 
-    public List<Achat> findAll() {
-        return achatDao.findAll();
-    }
+          public List<Achat> findAll() {
+               return achatDao.findAll();
+          }
 
-    @Autowired
+          @Autowired
            private AchatDao achatDao;
             @Autowired
-            private AchatCommandeService achatCommandeService;
+            private HistoriqueAchatService historiqueAchatService;
             @Autowired
             private ClientService clientService;
+
 }
