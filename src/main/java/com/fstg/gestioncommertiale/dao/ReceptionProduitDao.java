@@ -10,5 +10,6 @@ import java.util.List;
 public interface ReceptionProduitDao extends JpaRepository<ReceptionProduit,Long> {
     List<ReceptionProduit> findByReceptionRef(String ref);
 
+    int deleteByProduitRef(String ref);
     int deleteByReceptionRef(String ref);
 }

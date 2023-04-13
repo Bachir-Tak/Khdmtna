@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/GestionCommertiale/HistoriqueAchat")
+@RequestMapping("/GestionCommerciale/HistoriqueAchat")
 public class HistoriqueAchatProvided {
     @GetMapping("/ref/{ref}")
     public HistoriqueAchat findByRef(@PathVariable String ref) {

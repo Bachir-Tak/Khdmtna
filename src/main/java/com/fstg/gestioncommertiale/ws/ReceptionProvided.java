@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @RestController
-@RequestMapping("/GestionCommertiale/reception")
+@RequestMapping("/GestionCommerciale/Reception")
 public class ReceptionProvided {
     @Autowired
     private ReceptionService receptionService;
@@ -32,7 +32,7 @@ public class ReceptionProvided {
     }
 
     @PostMapping("/")
-    public int save(@RequestBody Reception reception, @RequestBody Magasin magasin) {
-        return receptionService.save(reception, magasin);
+    public int save(@RequestBody Reception reception) {
+        return receptionService.save(reception);
     }
 }

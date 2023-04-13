@@ -15,8 +15,11 @@ public class ReceptionProduitService {
     }
     @Transactional
     public int deleteByReceptionRef(String ref) {
-        produitService.deleteByRef(ref);
         return receptionProduitDao.deleteByReceptionRef(ref);
+    }
+
+    public int deleteByProduitRef(String ref) {
+        return receptionProduitDao.deleteByProduitRef(ref);
     }
 
     public List<ReceptionProduit> findAll() {
@@ -28,6 +31,5 @@ public class ReceptionProduitService {
     }
     @Autowired
     private ReceptionProduitDao receptionProduitDao;
-    @Autowired
-    private ProduitService produitService;
+
 }

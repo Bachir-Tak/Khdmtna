@@ -6,15 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.Id;
 import java.util.List;
 
 @RestController
-@RequestMapping("/GestionCommertiale/Client")
+@RequestMapping("/GestionCommerciale/Client")
 public class ClientProvided {
     @GetMapping("/cin/{cin}")
     public Client findByCin(@PathVariable String cin) {
         return clientService.findByCin(cin);
     }
+
+
 
     @DeleteMapping("/cin/{cin}")
     @Transactional

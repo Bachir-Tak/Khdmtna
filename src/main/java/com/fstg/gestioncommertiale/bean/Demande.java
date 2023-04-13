@@ -1,5 +1,7 @@
 package com.fstg.gestioncommertiale.bean;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class Demande {
     @OneToOne
     private Client client;
     @OneToMany(mappedBy = "demande")
+    @JsonManagedReference(value = "demande-demandeProduit")
     private List<DemandeProduit> demandeProduits;
 
     public void setId(Long id) {

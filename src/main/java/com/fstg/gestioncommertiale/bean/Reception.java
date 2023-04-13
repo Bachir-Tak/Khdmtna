@@ -1,5 +1,7 @@
 package com.fstg.gestioncommertiale.bean;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -14,9 +16,10 @@ public class Reception {
 
     private String libelle;
     @OneToMany(mappedBy = "reception")
+    @JsonManagedReference(value = "reception-receptionProduit")
     private List<ReceptionProduit> receptionProduit;
     @OneToOne
-    private Stock stock;
+    private Magasin magasin;
     private Date dateReception;
 
     public Long getId() {
@@ -43,12 +46,12 @@ public class Reception {
         this.receptionProduit = receptionProduit;
     }
 
-    public Stock getStock() {
-        return stock;
+    public Magasin getMagasin() {
+        return magasin;
     }
 
-    public void setStock(Stock stock) {
-        this.stock = stock;
+    public void setMagasin(Magasin magasin) {
+        this.magasin = magasin;
     }
 
     public Date getDateReception() {

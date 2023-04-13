@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/GestionCommertiale/Achat")
+@RequestMapping("/GestionCommerciale/Achat")
 public class AchatProvided {
     @GetMapping("/code/{code}")
     public Achat findByCode(@PathVariable String code) {

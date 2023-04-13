@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
 @RestController
-@RequestMapping("/GestionCommertiale/Remboursement")
+@RequestMapping("/GestionCommerciale/Remboursement")
 public class RemboursementProvided {
 
     @GetMapping("/code/{code}")
@@ -24,6 +25,13 @@ public class RemboursementProvided {
     public int save(@RequestBody Remboursement remboursement) {
         return remboursementService.save(remboursement);
     }
+    @GetMapping("/")
+
+    public List<Remboursement> findAll() {
+        return remboursementService.findAll();
+    }
+
+
     @Autowired
     private RemboursementService remboursementService;
 

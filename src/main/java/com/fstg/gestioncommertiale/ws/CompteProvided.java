@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/GestionCommertiale/Compte")
+@RequestMapping("/GestionCommerciale/Compte")
 public class CompteProvided {
     @GetMapping("/emai/{email}")
     public Compte findByEmail(@PathVariable String email) {

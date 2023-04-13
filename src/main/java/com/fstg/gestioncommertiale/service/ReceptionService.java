@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 @Service
@@ -25,34 +26,43 @@ public class ReceptionService {
         return receptionDao.findAll();
     }
 
-    public int save(Reception reception, Magasin magasin) {
+    public int save(Reception reception) {
+        boolean test = false;
         if (findByRef(reception.getRef()) != null) {
             return -1;
         }
         for (ReceptionProduit receptionProduit : reception.getReceptionProduit()) {
-            if (stockService.findByProduitRef(receptionProduit.getProduit().getRef()).isEmpty()) {
+            test = false;
+            for (Stock stock : reception.getMagasin().getStocks()) {
+                if (receptionProduit.getProduit().getRef().equals(stock.getProduit().getRef())) {
+                    stock.setQuantite(stock.getQuantite().add(receptionProduit.getQuantite()));
+                    stock.setQuantiteEntree(receptionProduit.getQuantite());
+                    stockService.save(stock);
+                    test=true;
+                    break;
+                }
+            }
+            if (test == false) {
                 Stock stock = new Stock();
                 stock.setProduit(receptionProduit.getProduit());
-                stock.setMagasin(magasin);
-                stock.setRef(reception.getRef());
+                stock.setMagasin(reception.getMagasin());
+                stock.setRef(receptionProduit.getProduit().getRef() + " " + reception.getMagasin().getLibelle());
                 stock.setQuantite(receptionProduit.getQuantite());
                 stock.setQuantiteEntree(receptionProduit.getQuantite());
                 stockService.save(stock);
-            } else {
-                for (Stock stock : stockService.findByProduitRef(receptionProduit.getProduit().getRef())) {
-                    if (stock.getMagasin().getCode() == magasin.getCode()) {
-                        stock.setQuantite(stock.getQuantite().add(receptionProduit.getQuantite()));
-                        stock.setQuantiteEntree(receptionProduit.getQuantite());
-                    }
-                }
+                test=false;
             }
         }
         receptionDao.save(reception);
-        for (ReceptionProduit receptionProduit : reception.getReceptionProduit()){
+        for (ReceptionProduit receptionProduit : reception.getReceptionProduit()) {
             receptionProduit.setReception(reception);
             receptionProduitService.save(receptionProduit);
         }
         return 1;
+    }
+
+    public int deleteByMagasinCode(String code) {
+        return receptionDao.deleteByMagasinCode(code);
     }
 
     @Autowired

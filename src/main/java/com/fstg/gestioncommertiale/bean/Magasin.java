@@ -1,5 +1,7 @@
 package com.fstg.gestioncommertiale.bean;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,6 +13,7 @@ public class Magasin {
     private String libelle;
     private String code;
     @OneToMany(mappedBy = "magasin")
+    @JsonManagedReference(value = "magasin-stock")
     private List<Stock> stocks;
 
     public Long getId() {
