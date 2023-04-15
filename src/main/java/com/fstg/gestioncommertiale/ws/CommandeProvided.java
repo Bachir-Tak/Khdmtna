@@ -30,9 +30,14 @@ public class CommandeProvided {
     public List<Commande> findAll() {
         return commandeService.findAll();
     }
+    @GetMapping("/cin/{cin}")
+    public List<Commande> findByClientCin(@PathVariable String cin) {
+        return commandeService.findByClientCin(cin);
+    }
 
     @Autowired
     private CommandeService commandeService;
+
 
 
 }
