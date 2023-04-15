@@ -8,7 +8,7 @@ public class Paiement {
     private Long id ;
     private String code ;
     @OneToOne
-    private Achat achat ;
+    private Commande commande ;
     private boolean paiementEffectue;
 
     public Long getId() {
@@ -21,12 +21,12 @@ public class Paiement {
 
 
 
-    public Achat getAchat() {
-        return achat;
+    public Commande getCommande() {
+        return commande;
     }
 
-    public void setAchat(Achat achat) {
-        this.achat = achat;
+    public void setCommande(Commande commande) {
+        this.commande = commande;
     }
 
     public String getCode() {

@@ -10,4 +10,6 @@ public interface PaiementDao extends JpaRepository<Paiement, Long> {
     Paiement findByCode(String code);
 
     int deleteByCode(String code);
+
+
 }

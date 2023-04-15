@@ -16,18 +16,17 @@ public class Livraison {
 
     private String ville;
     @OneToOne
-    private Achat achat;
-    @OneToMany(mappedBy = "livraison")
-    private List<LivraisonCommande> livraisonCommandes;
+    private Commande commande;
 
 
 
-    public Achat getAchat() {
-        return achat;
+
+    public Commande getCommande() {
+        return commande;
     }
 
-    public void setAchat(Achat achat) {
-        this.achat = achat;
+    public void setCommande(Commande commande) {
+        this.commande = commande;
     }
 
     public void setId(Long id) {
@@ -39,13 +38,7 @@ public class Livraison {
         return id;
     }
 
-    public List<LivraisonCommande> getLivraisonCommandes() {
-        return livraisonCommandes;
-    }
 
-    public void setLivraisonCommandes(List<LivraisonCommande> livraisonCommandes) {
-        this.livraisonCommandes = livraisonCommandes;
-    }
 
     public String getRef() {
         return ref;

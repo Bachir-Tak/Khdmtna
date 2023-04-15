@@ -1,6 +1,5 @@
 package com.fstg.gestioncommertiale.dao;
 
-import com.fstg.gestioncommertiale.bean.AchatCommande;
 import com.fstg.gestioncommertiale.bean.CommandeProduit;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

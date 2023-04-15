@@ -22,7 +22,7 @@ public class LivraisonService {
     public void deleteByRef(String ref){
         Livraison livraison = livraisonDao.findByRef(ref);
         if(livraison != null){
-        RecuRemboursement recuRemboursement = recuRemboursementService.findByCode(livraison.getAchat().getCode());
+        RecuRemboursement recuRemboursement = recuRemboursementService.findByCode(livraison.getCommande().getRef());
         if (recuRemboursement !=null && recuRemboursement.getRemboursement() !=null){
             livraisonDao.deleteByRef(ref);
         }
@@ -32,7 +32,7 @@ public class LivraisonService {
     public List<Livraison> findAll() {return livraisonDao.findAll();}
 
     public int save(Livraison livraison) {
-        Paiement paiement = paiementService.findByCode(livraison.getAchat().getCode());
+        Paiement paiement = paiementService.findByCode(livraison.getCommande().getRef());
         if (paiement != null && paiement.isPaiementEffectue()) {
             livraisonDao.save(livraison);
             livraison.setVille(livraison.getVille());

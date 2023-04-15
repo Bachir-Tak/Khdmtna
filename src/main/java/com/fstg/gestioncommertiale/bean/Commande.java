@@ -14,9 +14,18 @@ public class Commande {
     private LocalDateTime date;
     @OneToMany(mappedBy = "commande")
     private List<CommandeProduit> commandeProduits;
-     @ManyToOne
-     private RecapitulatifAchat recapitulatifAchat;
 
+
+    @ManyToOne
+    private Client client;
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 
     public Long getId() {
         return id;
@@ -53,11 +62,4 @@ public class Commande {
         this.date = date;
     }
 
-    public RecapitulatifAchat getRecapitulatifAchat() {
-        return recapitulatifAchat;
-    }
-
-    public void setRecapitulatifAchat(RecapitulatifAchat recapitulatifAchat) {
-        this.recapitulatifAchat = recapitulatifAchat;
-    }
 }
