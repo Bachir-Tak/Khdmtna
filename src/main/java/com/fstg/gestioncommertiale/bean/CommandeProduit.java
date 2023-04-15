@@ -1,5 +1,7 @@
 package com.fstg.gestioncommertiale.bean;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -15,6 +17,8 @@ public class CommandeProduit {
 
     private BigDecimal prixTotale;
     @ManyToOne
+   // @JoinColumn(referencedColumnName = "commande")
+    //@JsonManagedReference(value= "commande-commandeProduit")
     private Commande commande;
     @ManyToOne
     private Produit produit;

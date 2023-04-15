@@ -1,5 +1,6 @@
 package com.fstg.gestioncommertiale.service;
 
+import com.fstg.gestioncommertiale.bean.CategorieProduit;
 import com.fstg.gestioncommertiale.bean.Produit;
 import com.fstg.gestioncommertiale.bean.ReceptionProduit;
 import com.fstg.gestioncommertiale.dao.ProduitDao;
@@ -28,9 +29,17 @@ public class ProduitService {
     }
 
     public int update(Produit produit, Long prixVente) {
+        CategorieProduit categorieProduit = categorieProduitService.findByCode(produit.getCategorieProduit().getCode());
+        if(categorieProduit == null){
+            categorieProduit=produit.getCategorieProduit();
+            categorieProduitService.save(produit.getCategorieProduit());}
+
+        produit.setCategorieProduit(categorieProduit);
         if (findByRef(produit.getRef()) == null) {
             return -1;
-        } else {
+        }
+         else {
+
             produit.setPrixVente(prixVente);
             produitDao.save(produit);
             return 1;
@@ -43,7 +52,7 @@ public class ProduitService {
         return produitDao.deleteByRef(ref);
     }
 
-    public List<Produit> findAll() {
+     public List<Produit> findAll() {
         return produitDao.findAll();
     }
 
@@ -55,4 +64,7 @@ public class ProduitService {
 
     @Autowired
     private ReceptionProduitService receptionProduitService;
+
+    @Autowired
+    private CategorieProduitService categorieProduitService;
 }
