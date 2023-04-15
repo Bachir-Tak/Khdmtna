@@ -32,14 +32,14 @@ public class LivraisonService {
     public List<Livraison> findAll() {return livraisonDao.findAll();}
 
     public int save(Livraison livraison) {
-        Paiement paiement = paiementService.findByCode(livraison.getCommande().getRef());
-        if (paiement != null && paiement.isPaiementEffectue()) {
+
+            if(findByRef(livraison.getRef()) != null){
+                return -1;
+            }
             livraisonDao.save(livraison);
-            livraison.setVille(livraison.getVille());
             return 1;
-        } else {
-            return -1;
-        }
+
+
     }
     @Autowired
     private LivraisonDao livraisonDao;

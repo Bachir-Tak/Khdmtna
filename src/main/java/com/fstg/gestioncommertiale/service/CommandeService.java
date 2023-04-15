@@ -33,6 +33,7 @@ public class CommandeService {
 
                 commandeDao.save(commande);
                 for (CommandeProduit commandeProduit : commande.getCommandeProduits()) {
+                    System.out.println(commandeProduit.getQuantite());
                     commandeProduitService.save(commande, commande.getCommandeProduits());
                 }
                 return 1;

@@ -34,7 +34,6 @@ public class CommandeProduitService {
         for (CommandeProduit commandeProduit : commandeProduits) {
             commandeProduit.setPrixTotale(commandeProduit.getPrixUnitaire().multiply(commandeProduit.getQuantite()));
             commandeProduit.setCommande(commande);
-            commandeProduit.setCommande(commande);
             if(commandeProduit.getProduit() != null && commandeProduit.getProduit().getRef()!=null){
                 commandeProduit.setProduit(produitService.findByRef(commandeProduit.getProduit().getRef()));
             }

@@ -1,5 +1,7 @@
 package com.fstg.gestioncommertiale.bean;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,6 +15,7 @@ public class Commande {
 
     private LocalDateTime date;
     @OneToMany(mappedBy = "commande")
+    @JsonManagedReference(value = "commande-commandeProduit")
     private List<CommandeProduit> commandeProduits;
 
 

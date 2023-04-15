@@ -1,5 +1,7 @@
 package com.fstg.gestioncommertiale.bean;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -15,8 +17,11 @@ public class CommandeProduit {
 
     private BigDecimal prixTotale;
     @ManyToOne
+    @JoinColumn(name = "commande")
+    @JsonBackReference(value = "commande-commandeProduit")
     private Commande commande;
     @ManyToOne
+    @JoinColumn(name = "produit")
     private Produit produit;
 
 
