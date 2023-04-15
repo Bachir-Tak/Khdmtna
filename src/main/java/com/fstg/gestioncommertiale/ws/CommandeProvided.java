@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/GestionCommerciale/Commande")
 public class CommandeProvided {
@@ -24,8 +26,13 @@ public class CommandeProvided {
     public int save(@RequestBody Commande commande) {
         return commandeService.save(commande);
     }
+    @GetMapping("/")
+    public List<Commande> findAll() {
+        return commandeService.findAll();
+    }
 
     @Autowired
     private CommandeService commandeService;
+
 
 }

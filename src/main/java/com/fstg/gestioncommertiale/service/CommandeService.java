@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class CommandeService {
@@ -37,10 +38,15 @@ public class CommandeService {
                 }
                 return 1;
             }
+    public List<Commande> findAll() {
+        return commandeDao.findAll();
+    }
            @Autowired
             private CommandeDao commandeDao;
             @Autowired
              private CommandeProduitService commandeProduitService;
-        }
+
+
+}
 
 
