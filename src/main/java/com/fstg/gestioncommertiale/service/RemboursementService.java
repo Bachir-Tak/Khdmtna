@@ -20,8 +20,6 @@ public class RemboursementService {
     public int  save(Remboursement remboursement) {
         if (findByCode(remboursement.getCode()) != null) {
             return -1;
-        } else if (avoirLivraisonService.findByCode(remboursement.getAvoirLivraison().getCode())== null) {
-            return -2;
         } else{
             remboursementDao.save(remboursement);
             return 1;

@@ -10,15 +10,11 @@ public class Remboursement {
     private Long id;
     private String code;
     @OneToOne
-    private AvoirLivraison avoirLivraison;
+    private Commande commande;
+    @OneToOne
+    private Client client;
 
-    public AvoirLivraison getAvoirLivraison() {
-        return avoirLivraison;
-    }
 
-    public void setAvoirLivraison(AvoirLivraison avoirLivraison) {
-        this.avoirLivraison = avoirLivraison;
-    }
 
     public String getCode() {
         return code;
@@ -34,5 +30,22 @@ public class Remboursement {
 
     public Long getId() {
         return id;
+    }
+
+    public Commande getCommande() {
+        return commande;
+    }
+
+    public void setCommande(Commande commande) {
+        this.commande = commande;
+    }
+
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

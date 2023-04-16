@@ -11,7 +11,6 @@ public class Commande {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @JsonManagedReference(value= "commande-commandeProduit")
     private String ref;
 
     private LocalDateTime date;
