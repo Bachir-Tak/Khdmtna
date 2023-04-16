@@ -18,16 +18,11 @@ public class LivraisonService {
     }
 
     @Transactional
+    public int deleteByRef(String ref) {
 
-    public void deleteByRef(String ref){
-        Livraison livraison = livraisonDao.findByRef(ref);
-        if(livraison != null){
-        RecuRemboursement recuRemboursement = recuRemboursementService.findByCode(livraison.getCommande().getRef());
-        if (recuRemboursement !=null && recuRemboursement.getRemboursement() !=null){
-            livraisonDao.deleteByRef(ref);
-        }
-        }
+        return livraisonDao.deleteByRef(ref);
     }
+
 
     public List<Livraison> findAll() {return livraisonDao.findAll();}
 
@@ -48,6 +43,7 @@ public class LivraisonService {
 
     @Autowired
     private RecuRemboursementService recuRemboursementService;
+
 
 
 }

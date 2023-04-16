@@ -3,6 +3,7 @@ package com.fstg.gestioncommertiale.bean;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class Commande {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String ref;
+
 
     private LocalDateTime date;
     @OneToMany(mappedBy = "commande")

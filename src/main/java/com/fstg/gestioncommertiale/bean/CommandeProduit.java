@@ -14,8 +14,8 @@ public class CommandeProduit {
     private BigDecimal quantite;
 
     private BigDecimal prixUnitaire;
-
     private BigDecimal prixTotale;
+
     @ManyToOne
     @JoinColumn(name = "commande")
     @JsonBackReference(value = "commande-commandeProduit")
@@ -42,13 +42,7 @@ public class CommandeProduit {
     }
 
 
-    public BigDecimal getPrixTotale() {
-        return prixTotale;
-    }
 
-    public void setPrixTotale(BigDecimal prixTotale) {
-        this.prixTotale = prixTotale;
-    }
 
 
 
@@ -74,5 +68,13 @@ public class CommandeProduit {
 
     public void setQuantite(BigDecimal quantite) {
         this.quantite = quantite;
+    }
+
+    public BigDecimal getPrixTotale() {
+        return prixTotale;
+    }
+
+    public void setPrixTotale(BigDecimal prixTotale) {
+        this.prixTotale = prixTotale;
     }
 }
